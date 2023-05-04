@@ -1,8 +1,9 @@
+import { RenderRoutes, ROUTES } from "./routes/routes";
 
 function App() {
   return (
     <div className="App">
-      <>hello</>
+      <RenderRoutes routes={ROUTES} />
     </div>
   );
 }
