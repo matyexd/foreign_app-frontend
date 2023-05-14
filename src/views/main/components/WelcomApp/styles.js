@@ -10,4 +10,10 @@ export const useStyles = createStyles(() => ({
     fontWeight: 500,
     marginTop: 20,
   },
+  imgBox: {
+    width: 70,
+    height: 70,
+    display: "flex",
+    alignItems: "center",
+  },
 }));

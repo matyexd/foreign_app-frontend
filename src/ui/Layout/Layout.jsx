@@ -1,5 +1,6 @@
 import { Container, Box } from "@mantine/core";
 import { LayoutHeader } from "./LayoutHeader";
+import LayoutFooter from "./LayoutFooter";
 
 const Layout = ({ children }) => {
   return (
@@ -10,6 +11,9 @@ const Layout = ({ children }) => {
         </Container>
       </Box>
       {children}
+      <Box>
+        <LayoutFooter />
+      </Box>
     </>
   );
 };
