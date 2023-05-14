@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Header, Group, Container, Burger, Box } from "@mantine/core";
+import { Header, Group, Container, Burger, Box, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useStyles } from "./styles";
 import User from "../../assets/icons/user.svg";
@@ -7,12 +7,10 @@ import User from "../../assets/icons/user.svg";
 const links = [
   {
     id: 1,
-    link: "https://google.com",
     label: "Главная",
   },
   {
     id: 2,
-    link: "https://google.com",
     label: "Войти",
     icon: User,
   },
@@ -24,20 +22,30 @@ export function LayoutHeader() {
   const { classes, cx } = useStyles();
 
   const items = links.map((link) => (
-    <Box key={link.label} style={{ display: "flex", marginLeft: 30 }}>
-      {link.icon && <img src={link.icon} alt="" style={{ marginRight: 10 }} />}
-      <a
-        href={link.link}
+    <Box
+      key={link.label}
+      style={{ display: "flex", marginLeft: 30, cursor: "pointer" }}
+      onClick={(event) => {
+        event.preventDefault();
+        setActive(link.link);
+      }}
+    >
+      {link.icon && (
+        <img
+          src={link.icon}
+          alt=""
+          style={{ marginRight: 10 }}
+          width={18}
+          height={18}
+        />
+      )}
+      <Text
         className={cx(classes.link, {
           [classes.linkActive]: active === link.link,
         })}
-        onClick={(event) => {
-          event.preventDefault();
-          setActive(link.link);
-        }}
       >
         {link.label}
-      </a>
+      </Text>
     </Box>
   ));
 

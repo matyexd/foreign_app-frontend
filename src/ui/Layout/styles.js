@@ -44,5 +44,20 @@ export const useStyles = createStyles((theme) => ({
     textDecoration: "none",
   },
 
+  footerBox: {
+    backgroundColor: "#00093C",
+  },
+
   linkActive: {},
+  phone: {
+    fontWeight: 600,
+    fontSize: 18,
+    color: "#FFFFFF",
+  },
+  text: {
+    marginTop: 10,
+    fontWeight: 500,
+    fontSize: 14,
+    color: "#FFFFFF",
+  },
 }));

@@ -11,29 +11,37 @@ const WelcomeApp = () => {
   return (
     <Box mt={20}>
       <Text className={classes.title}>Добро пожаловать в Foreign app</Text>
-      <Grid mt={20}>
+      <Grid mt={40}>
         <Grid.Col sm={3}>
-          <img src={process} alt="" />
+          <Box className={classes.imgBox}>
+            <img src={process} alt="" />
+          </Box>
           <Text className={classes.textWelcome}>
             Передовой подход к образовательному процессу
           </Text>
         </Grid.Col>
         <Grid.Col sm={3}>
-          <img src={book} alt="" />
+          <Box className={classes.imgBox}>
+            <img src={book} alt="" />
+          </Box>
           <Text className={classes.textWelcome}>
             Непрерывное усовершенствование и пополнение базы курсов
           </Text>
         </Grid.Col>
         <Grid.Col sm={3}>
-          <img src={teachers} alt="" />
+          <Box className={classes.imgBox}>
+            <img src={teachers} alt="" />
+          </Box>
           <Text className={classes.textWelcome}>
             Только практикующие преподаватели
           </Text>
         </Grid.Col>
         <Grid.Col sm={3}>
-          <img src={student} alt="" />
+          <Box className={classes.imgBox}>
+            <img src={student} alt="" />
+          </Box>
           <Text className={classes.textWelcome}>
-            Сопровождение на всех этапах. От начала обучения до трудоустройства
+            Сопровождение на всех этапах
           </Text>
         </Grid.Col>
       </Grid>
