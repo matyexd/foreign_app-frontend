@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Text } from "@mantine/core";
+import { Box, Container, Grid, Text, Footer } from "@mantine/core";
 import { useStyles } from "./styles";
 import Telegram from "../../assets/icons/telegram.svg";
 import Vk from "../../assets/icons/vk.svg";
@@ -7,7 +7,7 @@ const LayoutFooter = () => {
   const { classes } = useStyles();
 
   return (
-    <Box className={classes.footerBox}>
+    <Footer className={classes.footerBox}>
       <Container>
         <Grid style={{ paddingTop: 30 }}>
           <Grid.Col span={6}>
@@ -55,7 +55,7 @@ const LayoutFooter = () => {
           </Grid.Col>
         </Grid>
       </Container>
-    </Box>
+    </Footer>
   );
 };
 

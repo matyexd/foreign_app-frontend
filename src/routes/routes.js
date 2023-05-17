@@ -9,6 +9,7 @@ export const ROUTES = [
     path: AppPath.main,
     component: Main,
     protected: false,
+    exact: true,
   },
   {
     path: AppPath.authUrl,
@@ -16,6 +17,7 @@ export const ROUTES = [
     component: lazy(() =>
       import(/* webpackChunkName: "auth" */ "../views/auth")
     ),
+    exact: true,
   },
 ];
 
