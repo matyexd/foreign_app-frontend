@@ -39,7 +39,6 @@ export const useStyles = createStyles((theme) => ({
   link: {
     display: "block",
     backgroundColor: "none",
-    color: "#000000",
     fontWeight: 500,
     textDecoration: "none",
   },
@@ -48,7 +47,6 @@ export const useStyles = createStyles((theme) => ({
     backgroundColor: "#00093C",
   },
 
-  linkActive: {},
   phone: {
     fontWeight: 600,
     fontSize: 18,
