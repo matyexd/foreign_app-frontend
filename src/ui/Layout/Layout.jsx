@@ -1,22 +1,15 @@
-import { Container, Box } from "@mantine/core";
-import { LayoutHeader } from "./LayoutHeader";
-import LayoutFooter from "./LayoutFooter";
+import { AppShell, Container } from "@mantine/core";
+import LayoutHeader from "./LayoutHeader";
+import LayoutNavbar from "./LayoutNavbar/LayoutNavbar";
 
-const Layout = ({ children, header = true }) => {
+const Layout = ({ children, title }) => {
   return (
-    <Box style={{ backgroundColor: "#E5E5E5" }}>
-      <Box
-        sx={[{ backgroundColor: "#FFFFFF" }, !header && { display: "none" }]}
-      >
-        <Container>
-          <LayoutHeader />
-        </Container>
-      </Box>
-      {children}
-      <Box>
-        <LayoutFooter />
-      </Box>
-    </Box>
+    <AppShell navbar={<LayoutNavbar />} padding={0}>
+      <LayoutHeader />
+      <Container fluid={true} py={16}>
+        {children}
+      </Container>
+    </AppShell>
   );
 };
 

@@ -6,4 +6,11 @@ export const AppPath = Object.freeze({
   signIn: "/sign_in/",
   signUp: "/sign_up/",
   resetPassword: "/password_reset/",
+
+  profile: "/profile/",
+  profileSettings: "/profile/settings/",
+  profileResetPassword: "/profile/reset_password/",
+  profileTeaching: "/profile/teaching/",
+
+  communityCourses: "/community_courses/",
 });

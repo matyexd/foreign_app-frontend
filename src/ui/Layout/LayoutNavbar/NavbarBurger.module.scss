@@ -1,0 +1,23 @@
+// navbar burger
+
+.root {
+  cursor: pointer;
+  color: #66788a;
+  font-size: 15px;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    color: #006fd6;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  padding: 4.5px;
+}
+
+.text {
+  line-height: 1.125;
+  padding-bottom: 2px;
+}

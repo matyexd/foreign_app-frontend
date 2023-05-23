@@ -19,6 +19,13 @@ export const ROUTES = [
     ),
     exact: true,
   },
+  {
+    path: AppPath.profile,
+    component: lazy(() =>
+      import(/* webpackChunkName: "profile" */ "../views/profile")
+    ),
+    protected: true,
+  },
 ];
 
 const RouteComponent = (route) => {
