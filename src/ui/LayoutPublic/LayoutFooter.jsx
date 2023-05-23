@@ -7,7 +7,7 @@ const LayoutFooter = () => {
   const { classes } = useStyles();
 
   return (
-    <Footer className={classes.footerBox}>
+    <Footer className={classes.footerBox} height={230}>
       <Container>
         <Grid style={{ paddingTop: 30 }}>
           <Grid.Col span={6}>

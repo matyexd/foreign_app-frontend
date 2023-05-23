@@ -2,6 +2,10 @@ import { lazy } from "react";
 import { AppPath } from "./routes-enums";
 import { Route, Switch } from "react-router-dom";
 import Main from "../views/main";
+import Profile from "../views/profile";
+import CommunityCourses from "../views/communityCourses";
+import Schools from "../views/schools";
+import PurchasedCourses from "../views/purchasedCourses";
 import { AuthLayout } from "../layouts/AuthLayout";
 
 export const ROUTES = [
@@ -18,6 +22,27 @@ export const ROUTES = [
       import(/* webpackChunkName: "auth" */ "../views/auth")
     ),
     exact: true,
+  },
+  {
+    path: AppPath.profile,
+    component: Profile,
+    protected: true,
+  },
+
+  {
+    path: AppPath.communityCourses,
+    component: CommunityCourses,
+    protected: true,
+  },
+  {
+    path: AppPath.schools,
+    component: Schools,
+    protected: true,
+  },
+  {
+    path: AppPath.purchasedCourses,
+    component: PurchasedCourses,
+    protected: true,
   },
 ];
 

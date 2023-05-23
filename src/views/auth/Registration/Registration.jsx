@@ -1,6 +1,8 @@
 import { Box, TextInput, Button, createStyles } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import AuthLayout from "../components/AuthLayout";
+import { AppPath } from "../../../routes/routes-enums";
+import { useHistory } from "react-router-dom";
 
 const useStyles = createStyles(() => ({
   root: {
@@ -12,6 +14,7 @@ const useStyles = createStyles(() => ({
 
 export const Registration = () => {
   const { classes } = useStyles();
+  const history = useHistory();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -49,7 +52,11 @@ export const Registration = () => {
             sx={{ justifyContent: "center" }}
             mt={20}
           >
-            <Button className={classes.root} color={"orange"} size={"xl"}>
+            <Button
+              onClick={() => history.push(AppPath.communityCourses)}
+              className={classes.root}
+              size={"xl"}
+            >
               Зарегистрироваться
             </Button>
           </Box>

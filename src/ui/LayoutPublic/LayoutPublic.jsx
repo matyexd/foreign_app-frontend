@@ -1,6 +1,6 @@
 import { AppShell } from "@mantine/core";
-import LayoutFooter from "../Layout/LayoutFooter";
-import { LayoutHeader } from "../Layout/LayoutHeader";
+import LayoutFooter from "./LayoutFooter";
+import { LayoutHeader } from "./LayoutHeader";
 
 const LayoutPublic = ({ children, padding, headerDark }) => {
   return (
