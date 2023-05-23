@@ -1,11 +1,11 @@
 import { AppShell, Container } from "@mantine/core";
-import LayoutHeader from "./LayoutHeader";
+import LayoutHeader from "./LayoutHeader/LayoutHeader";
 import LayoutNavbar from "./LayoutNavbar/LayoutNavbar";
 
 const Layout = ({ children, title }) => {
   return (
     <AppShell navbar={<LayoutNavbar />} padding={0}>
-      <LayoutHeader />
+      <LayoutHeader title={title} />
       <Container fluid={true} py={16}>
         {children}
       </Container>
