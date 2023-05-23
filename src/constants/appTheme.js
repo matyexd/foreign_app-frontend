@@ -10,6 +10,7 @@ export const appTheme = {
     lg: 14,
     xl: 14,
   },
+  primaryColor: "orange",
   components: {
     AppShell: {
       defaultProps: {

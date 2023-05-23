@@ -9,7 +9,7 @@ const LayoutNavbarBurger = ({ opened, onClick }) => {
     <Group className={styles.root} noWrap spacing={10} onClick={onClick}>
       <Burger
         className={styles.icon}
-        color={"#BFCEDB"}
+        color={"#FFFFFF"}
         opened={opened}
         title={title}
         size={15}

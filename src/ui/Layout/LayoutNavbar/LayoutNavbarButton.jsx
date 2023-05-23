@@ -6,7 +6,7 @@ const LayoutNavbarButton = ({ opened = true, label, icon, href }) => {
   return (
     <NavLink
       to={href}
-      className={({ isActive }) =>
+      className={(isActive) =>
         clsx(styles.root, isActive ? styles.rootActive : "")
       }
     >

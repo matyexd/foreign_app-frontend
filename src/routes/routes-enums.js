@@ -7,10 +7,16 @@ export const AppPath = Object.freeze({
   signUp: "/sign_up/",
   resetPassword: "/password_reset/",
 
-  profile: "/profile/",
+  profile: "/profile/:tabValue/",
   profileSettings: "/profile/settings/",
   profileResetPassword: "/profile/reset_password/",
   profileTeaching: "/profile/teaching/",
 
   communityCourses: "/community_courses/",
+  schools: "/schools/",
+  purchasedCourses: "/purchased_courses/",
+
+  // teacher
+  myCourses: "/my_courses/",
+  myStudents: "/my_students",
 });

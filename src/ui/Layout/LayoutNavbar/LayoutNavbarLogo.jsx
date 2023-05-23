@@ -10,12 +10,14 @@ const LayoutNavbarLogo = ({ opened = true }) => {
         <div className={styles.icon}>
           {opened ? (
             <Box className={styles.logo} ml={-5}>
-              <Language size={35} color={"#000000"} />
-              <Text ml={5}>ForeignApp</Text>
+              <Language size={35} color={"#FFFFFF"} />
+              <Text color={"#FFFFFF"} ml={10}>
+                ForeignApp
+              </Text>
             </Box>
           ) : (
             <Box className={styles.logo} mt={3} ml={-5}>
-              <Language size={35} color={"#000000"} />
+              <Language size={35} color={"#FFFFFF"} />
             </Box>
           )}
         </div>
