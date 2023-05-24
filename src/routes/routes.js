@@ -3,7 +3,7 @@ import { AppPath } from "./routes-enums";
 import { Route, Switch } from "react-router-dom";
 import Main from "../views/main";
 import { AuthLayout } from "../layouts/AuthLayout";
-import Layout from "../ui/Layout";
+import Layout from "../components/Layout";
 
 export const ROUTES = [
   {

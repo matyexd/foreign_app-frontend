@@ -1,20 +1,17 @@
 import styles from "./LayoutNavbar.module.scss";
 import { Divider, Navbar, ScrollArea } from "@mantine/core";
-import { useState } from "react";
 import { getNavigation } from "../../../routes/navigation";
 import LayoutNavbarButton from "./LayoutNavbarButton";
 import LayoutNavbarLogo from "./LayoutNavbarLogo";
 import LayoutNavbarBurger from "./LayoutNavbarBurger";
 
-const LayoutNavbar = () => {
-  const [opened, setOpened] = useState(true);
-
+const LayoutNavbar = ({ sidebarOpen, setSidebarOpen }) => {
   const navigation = getNavigation();
 
   return (
     <Navbar
       className={styles.navbar}
-      width={{ base: opened ? 260 : 72 }}
+      width={{ base: sidebarOpen ? 260 : 72 }}
       height={"110vh"}
       pl={24}
       py={30}
@@ -24,10 +21,10 @@ const LayoutNavbar = () => {
       }}
     >
       <Navbar.Section pb={20}>
-        <LayoutNavbarLogo opened={opened} />
+        <LayoutNavbarLogo opened={sidebarOpen} />
         <LayoutNavbarBurger
-          opened={opened}
-          onClick={() => setOpened(!opened)}
+          opened={sidebarOpen}
+          onClick={() => setSidebarOpen()}
         />
       </Navbar.Section>
 
@@ -35,7 +32,7 @@ const LayoutNavbar = () => {
         {navigation.main.map((item) => (
           <LayoutNavbarButton
             key={item.href}
-            opened={opened}
+            opened={sidebarOpen}
             label={item.title}
             icon={item.icon}
             href={item.href}
@@ -47,7 +44,7 @@ const LayoutNavbar = () => {
         {navigation.teacher.map((item) => (
           <LayoutNavbarButton
             key={item.href}
-            opened={opened}
+            opened={sidebarOpen}
             label={item.title}
             icon={item.icon}
             href={item.href}
