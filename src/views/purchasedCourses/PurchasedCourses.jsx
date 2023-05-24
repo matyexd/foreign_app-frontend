@@ -1,7 +1,5 @@
-import Layout from "../../ui/Layout";
-
 const PurchasedCourses = () => {
-  return <Layout title={"Приобретенные курсы"}>in develop</Layout>;
+  return <>in develop</>;
 };
 
 export default PurchasedCourses;
