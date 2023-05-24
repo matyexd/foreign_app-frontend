@@ -1,7 +1,5 @@
-import Layout from "../../ui/Layout";
-
 const Schools = () => {
-  return <Layout title={"Школы"}>in develop</Layout>;
+  return <>in develop</>;
 };
 
 export default Schools;

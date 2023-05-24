@@ -2,11 +2,8 @@ import { lazy } from "react";
 import { AppPath } from "./routes-enums";
 import { Route, Switch } from "react-router-dom";
 import Main from "../views/main";
-import Profile from "../views/profile";
-import CommunityCourses from "../views/communityCourses";
-import Schools from "../views/schools";
-import PurchasedCourses from "../views/purchasedCourses";
 import { AuthLayout } from "../layouts/AuthLayout";
+import Layout from "../ui/Layout";
 
 export const ROUTES = [
   {
@@ -25,24 +22,44 @@ export const ROUTES = [
   },
   {
     path: AppPath.profile,
-    component: Profile,
+    //component: Profile,
+    component: lazy(() =>
+      import(/* webpackChunkName: "profile" */ "../views/profile")
+    ),
     protected: true,
+    title: "Профиль",
   },
 
   {
     path: AppPath.communityCourses,
-    component: CommunityCourses,
+    //component: CommunityCourses,
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "communityCourses" */ "../views/communityCourses"
+      )
+    ),
     protected: true,
+    title: "Курсы сообщества",
   },
   {
     path: AppPath.schools,
-    component: Schools,
+    //component: Schools,
+    component: lazy(() =>
+      import(/* webpackChunkName: "schools" */ "../views/schools")
+    ),
     protected: true,
+    title: "Школы",
   },
   {
     path: AppPath.purchasedCourses,
-    component: PurchasedCourses,
+    //component: PurchasedCourses,
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "purchasedCourses" */ "../views/purchasedCourses"
+      )
+    ),
     protected: true,
+    title: "Приобретенные курсы",
   },
 ];
 
@@ -60,6 +77,20 @@ const RouteComponent = (route) => {
   }
 
   const RouteCmp = route.component;
+
+  if (route.protected) {
+    return (
+      <Route
+        path={route.path}
+        exact={route.exact}
+        render={(props) => (
+          <Layout title={route.title}>
+            <RouteCmp {...props} />
+          </Layout>
+        )}
+      />
+    );
+  }
 
   return (
     <Route

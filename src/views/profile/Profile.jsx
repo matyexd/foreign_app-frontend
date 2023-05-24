@@ -1,5 +1,4 @@
 import { useParams, useHistory } from "react-router-dom";
-import Layout from "../../ui/Layout";
 import { Tabs } from "@mantine/core";
 import ProfileSettings from "./ProfileSettings/ProfileSettings";
 import Teaching from "./Teaching/Teaching";
@@ -9,10 +8,8 @@ const Profile = () => {
   const { tabValue } = useParams();
   const history = useHistory();
 
-  console.log(tabValue);
-
   return (
-    <Layout title={"Профиль"}>
+    <>
       <Tabs
         value={tabValue}
         onTabChange={(value) => history.push(`/profile/${value}`)}
@@ -34,7 +31,7 @@ const Profile = () => {
           <Teaching />
         </Tabs.Panel>
       </Tabs>
-    </Layout>
+    </>
   );
 };
 

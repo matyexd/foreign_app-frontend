@@ -7,11 +7,9 @@ const Layout = ({ children, title }) => {
   return (
     <AppShell navbar={<LayoutNavbar />} padding={0}>
       <LayoutHeader title={title} />
-      <Suspense fallback={<Loader />}>
-        <Container fluid={true} py={16}>
-          {children}
-        </Container>
-      </Suspense>
+      <Container fluid={true} py={16}>
+        <Suspense fallback={<Loader />}>{children}</Suspense>
+      </Container>
     </AppShell>
   );
 };
