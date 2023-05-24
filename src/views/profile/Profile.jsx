@@ -3,8 +3,9 @@ import { Tabs } from "@mantine/core";
 import ProfileSettings from "./ProfileSettings/ProfileSettings";
 import Teaching from "./Teaching/Teaching";
 import ResetPassword from "./ResetPassword/ResetPassword";
+import { observer } from "mobx-react";
 
-const Profile = () => {
+const Profile = observer(() => {
   const { tabValue } = useParams();
   const history = useHistory();
 
@@ -17,7 +18,9 @@ const Profile = () => {
       >
         <Tabs.List>
           <Tabs.Tab value="settings">Настройки</Tabs.Tab>
-          <Tabs.Tab value="reset_password">Сброс пароля</Tabs.Tab>
+          <Tabs.Tab value="reset_password" disabled>
+            Сброс пароля
+          </Tabs.Tab>
           <Tabs.Tab value="teaching">Преподавание</Tabs.Tab>
         </Tabs.List>
 
@@ -33,6 +36,6 @@ const Profile = () => {
       </Tabs>
     </>
   );
-};
+});
 
 export default Profile;
