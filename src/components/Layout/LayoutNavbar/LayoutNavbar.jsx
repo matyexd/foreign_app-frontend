@@ -4,9 +4,14 @@ import { getNavigation } from "../../../routes/navigation";
 import LayoutNavbarButton from "./LayoutNavbarButton";
 import LayoutNavbarLogo from "./LayoutNavbarLogo";
 import LayoutNavbarBurger from "./LayoutNavbarBurger";
+import { useSelector } from "../../../hooks/mobxStoreHooks/useSelector";
+import { ROLES } from "../../../constants/Roles";
+import { observer } from "mobx-react";
 
-const LayoutNavbar = ({ sidebarOpen, setSidebarOpen }) => {
+const LayoutNavbar = observer(({ sidebarOpen, setSidebarOpen }) => {
   const navigation = getNavigation();
+
+  const { role } = useSelector((store) => store.profileStore);
 
   return (
     <Navbar
@@ -39,20 +44,24 @@ const LayoutNavbar = ({ sidebarOpen, setSidebarOpen }) => {
           />
         ))}
 
-        <Divider my={15} mr={24} color="#FFFFFF" />
+        {role.code === ROLES.TEACHER.code && (
+          <>
+            <Divider my={15} mr={24} color="#FFFFFF" />
 
-        {navigation.teacher.map((item) => (
-          <LayoutNavbarButton
-            key={item.href}
-            opened={sidebarOpen}
-            label={item.title}
-            icon={item.icon}
-            href={item.href}
-          />
-        ))}
+            {navigation.teacher.map((item) => (
+              <LayoutNavbarButton
+                key={item.href}
+                opened={sidebarOpen}
+                label={item.title}
+                icon={item.icon}
+                href={item.href}
+              />
+            ))}
+          </>
+        )}
       </Navbar.Section>
     </Navbar>
   );
-};
+});
 
 export default LayoutNavbar;
