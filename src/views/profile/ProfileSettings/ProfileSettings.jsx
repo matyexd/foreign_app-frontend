@@ -16,7 +16,7 @@ const ProfileSettings = () => {
   const handleClick = (event) => {
     setOpened(true);
     const { name } = event.currentTarget.dataset;
-
+    console.log(12);
     switch (name) {
       case "name":
         setSelectedLabel(name);
