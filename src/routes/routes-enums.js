@@ -12,11 +12,14 @@ export const AppPath = Object.freeze({
   profileResetPassword: "/profile/reset_password/",
   profileTeaching: "/profile/teaching/",
 
-  communityCourses: "/community_courses/",
   schools: "/schools/",
+  education: "/education",
+  communityCourses: "/community_courses/",
   purchasedCourses: "/purchased_courses/",
 
+
+
   // teacher
-  myCourses: "/my_courses/",
-  myStudents: "/my_students",
+  myCourses: "/teacher/my-courses/",
+  myStudents: "/teacher/my-students",
 });
