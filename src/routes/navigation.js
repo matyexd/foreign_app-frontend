@@ -2,6 +2,7 @@ import {
   GridDots,
   Building,
   ShoppingBag,
+  Book,
   Users,
   Books,
 } from "tabler-icons-react";
@@ -10,22 +11,27 @@ import { AppPath } from "./routes-enums";
 
 export const getNavigation = () => ({
   main: [
-    {
-      href: AppPath.communityCourses,
-      title: "Курсы сообщества",
-      icon: <GridDots size={24} />,
-    },
-    {
-      href: AppPath.purchasedCourses,
-      title: "Приобретенные курсы",
-      icon: <ShoppingBag size={24} />,
-    },
+    
     {
       href: AppPath.schools,
       title: "Школы",
       icon: <Building size={24} />,
     },
-
+    {
+      href: AppPath.education,
+      title: "Обучение",
+      icon: <Book size={24} />,
+    },
+    // {
+    //   href: AppPath.communityCourses,
+    //   title: "Курсы сообщества",
+    //   icon: <GridDots size={24} />,
+    // },
+    // {
+    //   href: AppPath.purchasedCourses,
+    //   title: "Приобретенные курсы",
+    //   icon: <ShoppingBag size={24} />,
+    // },
     // {
     //   href: AppPaths.CLIENTS,
     //   title: i18n.t('Layout.Clients'),

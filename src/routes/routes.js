@@ -30,17 +30,7 @@ export const ROUTES = [
     title: "Профиль",
   },
 
-  {
-    path: AppPath.communityCourses,
-    //component: CommunityCourses,
-    component: lazy(() =>
-      import(
-        /* webpackChunkName: "communityCourses" */ "../views/communityCourses"
-      )
-    ),
-    protected: true,
-    title: "Курсы сообщества",
-  },
+  
   {
     path: AppPath.schools,
     //component: Schools,
@@ -49,6 +39,33 @@ export const ROUTES = [
     ),
     protected: true,
     title: "Школы",
+  },
+  {
+    path: AppPath.myCourses,
+    //component: Schools,
+    component: lazy(() =>
+      import(/* webpackChunkName: "schools" */ "../views/myCourses")
+    ),
+    protected: true,
+    title: "Мои курсы",
+  },
+  {
+    path: AppPath.myStudents,
+    //component: Schools,
+    component: lazy(() =>
+      import(/* webpackChunkName: "schools" */ "../views/myStudents")
+    ),
+    protected: true,
+    title: "Мои студенты",
+  },
+  {
+    path: AppPath.education,
+    //component: Schools,
+    component: lazy(() =>
+      import(/* webpackChunkName: "schools" */ "../views/education")
+    ),
+    protected: true,
+    title: "Обучение",
   },
   {
     path: AppPath.purchasedCourses,
@@ -60,6 +77,17 @@ export const ROUTES = [
     ),
     protected: true,
     title: "Приобретенные курсы",
+  },
+  {
+    path: AppPath.communityCourses,
+    //component: CommunityCourses,
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "communityCourses" */ "../views/communityCourses"
+      )
+    ),
+    protected: true,
+    title: "Курсы сообщества",
   },
 ];
 
