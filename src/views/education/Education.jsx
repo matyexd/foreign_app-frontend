@@ -1,8 +1,12 @@
 import React from 'react'
+import { TeacherList } from '../../components/teacher'
 
 const Education = () => {
   return (
-    <div>Education</div>
+    <>
+      <h1>Мои преподаватели</h1>
+      <TeacherList/>
+    </>
   )
 }
 
