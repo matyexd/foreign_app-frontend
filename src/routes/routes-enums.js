@@ -14,6 +14,7 @@ export const AppPath = Object.freeze({
 
   schools: "/schools/",
   education: "/education",
+  educationCourses: "/education/:id",
   communityCourses: "/community_courses/",
   purchasedCourses: "/purchased_courses/",
 

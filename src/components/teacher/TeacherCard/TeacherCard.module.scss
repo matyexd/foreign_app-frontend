@@ -1,6 +1,12 @@
 .teacher {
     padding: 20px;
+    border-radius: 20px;
     flex: 0 1 280px;
+    cursor: pointer;
+    transition: .2s;
+    &:hover {
+        box-shadow: 0 0 5px gray;
+    }
 }
 
 .gradient_wrapper {
