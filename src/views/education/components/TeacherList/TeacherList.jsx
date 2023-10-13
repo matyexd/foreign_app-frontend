@@ -1,7 +1,7 @@
 import React from 'react'
 import st from "./TeacherList.module.scss"
-import TeacherCard from '../TeacherCard/TeacherCard'
-import img from "../../../assets/images/teacher/teacher.png"
+import img from "../../../../assets/images/teacher/teacher.png"
+import TeacherCard from '../../../../components/TeacherCard/TeacherCard'
 
 const teachers = [{
   id: 0,

@@ -1,5 +1,6 @@
 import React from 'react'
-import { TeacherList } from '../../components/teacher'
+import TeacherList from './components/TeacherList/TeacherList'
+
 
 const Education = () => {
   return (

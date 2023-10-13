@@ -1,7 +1,7 @@
 import React from 'react'
 import st from "./TeacherCard.module.scss"
 import { useHistory } from 'react-router-dom';
-import { AppPath } from '../../../routes/routes-enums';
+import { AppPath } from '../../routes/routes-enums';
 const TeacherCard = ({teacher}) => {
 
   const history = useHistory();

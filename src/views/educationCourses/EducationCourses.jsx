@@ -1,6 +1,6 @@
 import React from 'react';
-import { EduCoursesList } from '../../components/eduCourses';
 import {useParams} from "react-router-dom";
+import EduCoursesList from './components/EduCoursesList/EduCoursesList';
 
 const EducationCourses = () => {
   const params = useParams();
