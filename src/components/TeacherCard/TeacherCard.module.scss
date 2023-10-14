@@ -1,0 +1,52 @@
+.teacher {
+    padding: 20px;
+    border-radius: 20px;
+    flex: 0 1 280px;
+    cursor: pointer;
+    transition: .2s;
+    &:hover {
+        box-shadow: 0 0 5px gray;
+    }
+}
+
+.gradient_wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    padding: 2px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #F7941D 0%, #27AAE1 100%);
+    margin: 0 auto;
+}
+
+.teacher__avatar {
+    padding: 8px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.teacher__img {
+    max-width: 100%;
+}
+
+.teacher__body {
+    margin-top: 25px;
+    padding: 0 15px;
+}
+
+.teacher__name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21.94px;
+}
+
+.teacher__description {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(79, 79, 79, 1);
+}

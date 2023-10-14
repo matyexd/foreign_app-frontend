@@ -59,6 +59,15 @@ export const ROUTES = [
     title: "Мои студенты",
   },
   {
+    path: AppPath.educationCourses,
+    //component: Schools,
+    component: lazy(() =>
+      import(/* webpackChunkName: "schools" */ "../views/educationCourses")
+    ),
+    protected: true,
+    title: "Курсы преподвателя",
+  },
+  {
     path: AppPath.education,
     //component: Schools,
     component: lazy(() =>
@@ -67,6 +76,7 @@ export const ROUTES = [
     protected: true,
     title: "Обучение",
   },
+  
   {
     path: AppPath.purchasedCourses,
     //component: PurchasedCourses,
