@@ -1,8 +1,10 @@
-import { Box, TextInput, Button, createStyles } from "@mantine/core";
+import { Box, TextInput, Button, createStyles, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import AuthLayout from "../components/AuthLayout";
 import { useHistory } from "react-router-dom";
 import { AppPath } from "../../../routes/routes-enums";
+import {observer} from "mobx-react";
+import {useSelector} from "../../../hooks/mobxStoreHooks/useSelector";
 
 const useStyles = createStyles(() => ({
   root: {
@@ -12,26 +14,27 @@ const useStyles = createStyles(() => ({
   },
 }));
 
-export const Login = () => {
+export const Login = observer(() => {
   const { classes } = useStyles();
+  const { postGetCode, inProcess, errors } = useSelector(
+      (store) => store.authStore
+  );
   const history = useHistory();
 
-  const handleLogin = (event) => {
+  const handleLogin = (values, event) => {
     event.preventDefault();
+    console.log(values)
+    postGetCode({phoneValue: values.phoneNumber})
   };
 
   const form = useForm({
     initialValues: {
-      email: "",
-      password: "",
-      rememberMe: false,
+      phoneNumber: ''
     },
 
     validate: {
-      email: (value) =>
+      phoneNumber: (value) =>
         value.length > 0 ? null : "Поле не должно быть пустым",
-      password: (value) =>
-        value.length > 0 ? null : "Пароль не может быть пустым",
     },
   });
 
@@ -43,8 +46,7 @@ export const Login = () => {
             handleLogin(values, event)
           )}
         >
-          <TextInput placeholder="Введите email" />
-          <TextInput mt={20} placeholder="Введите пароль" />
+          <TextInput placeholder="Укажите телефон" {...form.getInputProps("phoneNumber")}/>
           <Box
             w="100%"
             display={"flex"}
@@ -52,15 +54,20 @@ export const Login = () => {
             mt={20}
           >
             <Button
-              onClick={() => history.push(AppPath.communityCourses)}
+              // onClick={() => history.push(AppPath.communityCourses)}
+                type={'submit'}
               className={classes.root}
               size={"xl"}
+                loading={inProcess}
             >
-              Войти
+              Отправить код
             </Button>
           </Box>
         </form>
       </Box>
+      {errors &&       <Box display={'flex'} sx={{justifyContent: 'center', marginTop: 30}}>
+        <Text color={'red'}>{errors}</Text>
+      </Box>}
     </AuthLayout>
   );
-};
+});

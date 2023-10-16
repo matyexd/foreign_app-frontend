@@ -9,7 +9,7 @@ const AuthHeader = ({ active }) => {
   const history = useHistory();
   return (
     <Box
-      sx={{ width: "100%", display: "flex", justifyContent: "space-between" }}
+      sx={{ width: "100%", display: "flex", justifyContent: "center" }}
     >
       <Box
         className={clsx(classes.item, active === "signIn" && "activeButton")}
@@ -18,13 +18,13 @@ const AuthHeader = ({ active }) => {
       >
         <Text className={classes.text}>Вход</Text>
       </Box>
-      <Box
-        className={clsx(classes.item, active === "signUp" && "activeButton")}
-        sx={active === "signIn" && { cursor: "pointer" }}
-        onClick={() => active !== "signUp" && history.push(AppPath.signUp)}
-      >
-        <Text className={classes.text}>Регистрация</Text>
-      </Box>
+      {/*<Box*/}
+      {/*  className={clsx(classes.item, active === "signUp" && "activeButton")}*/}
+      {/*  sx={active === "signIn" && { cursor: "pointer" }}*/}
+      {/*  onClick={() => active !== "signUp" && history.push(AppPath.signUp)}*/}
+      {/*>*/}
+      {/*  <Text className={classes.text}>Регистрация</Text>*/}
+      {/*</Box>*/}
     </Box>
   );
 };

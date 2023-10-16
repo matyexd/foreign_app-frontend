@@ -24,3 +24,10 @@ export const AppPath = Object.freeze({
   myCourses: "/teacher/my-courses/",
   myStudents: "/teacher/my-students",
 });
+
+export const AuthUrl = Object.freeze({
+  // postLogin: "/auth/login",
+  // logout: "/auth/logOut",
+  // register: "/auth/signUp",
+  postGetCode: '/security/sms'
+});
