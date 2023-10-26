@@ -1,10 +1,10 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import { ROLES } from "../../../constants/Roles";
+import { ROLES, ROLES_ITEMS, RolesItemTypes } from "../../../constants/Roles";
 
 class ProfileStore {
   firstName = "Ваня";
   lastName = "Иванов";
-  role = ROLES.STUDENT;
+  role: RolesItemTypes = ROLES_ITEMS.STUDENT;
   email = "info@foreignapp.ru";
 
   constructor() {
@@ -33,7 +33,7 @@ class ProfileStore {
     this.lastName = newLastName;
   };
 
-  setRole = (role: { code: string; name: string }) => {
+  setRole = (role: RolesItemTypes) => {
     this.role = role;
   };
 

@@ -18,8 +18,6 @@ export const AppPath = Object.freeze({
   communityCourses: "/community_courses/",
   purchasedCourses: "/purchased_courses/",
 
-
-
   // teacher
   myCourses: "/teacher/my-courses/",
   myStudents: "/teacher/my-students",
@@ -29,5 +27,6 @@ export const AuthUrl = Object.freeze({
   // postLogin: "/auth/login",
   // logout: "/auth/logOut",
   // register: "/auth/signUp",
-  postGetCode: '/security/sms'
+  postGetCode: "/security/sms",
+  postLogin: "/security/login",
 });

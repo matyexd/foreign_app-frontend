@@ -4,7 +4,7 @@ import { getNavigation } from "../../../routes/navigation";
 import LayoutNavbarButton from "./LayoutNavbarButton";
 import LayoutNavbarLogo from "./LayoutNavbarLogo";
 import LayoutNavbarBurger from "./LayoutNavbarBurger";
-import { ROLES } from "../../../constants/Roles";
+import { ROLES, ROLES_ITEMS } from "../../../constants/Roles";
 import { observer } from "mobx-react";
 import { useRootStore } from "@/hooks/mobxStoreHooks/useStore";
 import { FC } from "react";
@@ -51,7 +51,7 @@ const LayoutNavbar: FC<ILayoutNavbarProps> = observer(
             />
           ))}
 
-          {role.code === ROLES.TEACHER.code && (
+          {role.code === ROLES_ITEMS.TEACHER.code && (
             <>
               <Divider my={15} mr={24} color="#FFFFFF" />
 

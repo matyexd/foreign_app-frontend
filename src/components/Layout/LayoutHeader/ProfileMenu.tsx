@@ -2,9 +2,12 @@ import { Button, Menu, Text } from "@mantine/core";
 import { Logout, User } from "tabler-icons-react";
 import { useHistory } from "react-router-dom";
 import { AppPath } from "@/routes/routes-enums";
+import { useRootStore } from "@/hooks/mobxStoreHooks/useStore";
 
 const ProfileMenu = () => {
   const history = useHistory();
+  const store = useRootStore();
+  const { logout } = store.authStore;
 
   return (
     <>
@@ -21,7 +24,7 @@ const ProfileMenu = () => {
             <Text pt={3}>Настройки профиля</Text>
           </Menu.Item>
           <Menu.Item
-            onClick={() => history.push(AppPath.main)}
+            onClick={() => logout()}
             icon={<Logout size={20} color="red" />}
           >
             Выйти

@@ -17,23 +17,31 @@ const useStyles = createStyles(() => ({
 
 export interface FormValues {
   phoneNumber: string;
+  code: string;
 }
 
 export const Login = observer(() => {
   const { classes } = useStyles();
   const store = useRootStore();
-  const { postGetCode, inProcess, errors } = store.authStore;
+  const { postGetCode, inProcess, errors, code, postLogin } = store.authStore;
   const history = useHistory();
+  console.log(code);
+  console.log(errors);
 
   const handleLogin = (values: FormValues, event: FormEvent) => {
     event.preventDefault();
     console.log(values);
-    postGetCode({ phoneValue: values.phoneNumber });
+    if (code) {
+      postLogin({ code: values.code });
+    } else {
+      postGetCode({ phoneValue: values.phoneNumber });
+    }
   };
 
   const form = useForm<FormValues>({
     initialValues: {
       phoneNumber: "",
+      code: "",
     },
 
     validate: {
@@ -50,31 +58,63 @@ export const Login = observer(() => {
             handleLogin(values, event)
           )}
         >
-          <TextInput
-            placeholder="Укажите телефон"
-            {...form.getInputProps("phoneNumber")}
-          />
-          <Box
-            w="100%"
-            display={"flex"}
-            sx={{ justifyContent: "center" }}
-            mt={20}
-          >
-            <Button
-              // onClick={() => history.push(AppPath.communityCourses)}
-              type={"submit"}
-              className={classes.root}
-              size={"xl"}
-              loading={inProcess}
-            >
-              Отправить код
-            </Button>
-          </Box>
+          {code ? (
+            <>
+              <TextInput
+                placeholder="Введите код"
+                {...form.getInputProps("code")}
+              />
+              <Box
+                w="100%"
+                display={"flex"}
+                sx={{ justifyContent: "center" }}
+                mt={20}
+              >
+                <Button
+                  // onClick={() => history.push(AppPath.communityCourses)}
+                  type={"submit"}
+                  className={classes.root}
+                  size={"xl"}
+                  loading={inProcess}
+                >
+                  Отправить код
+                </Button>
+              </Box>
+            </>
+          ) : (
+            <>
+              <TextInput
+                placeholder="Укажите телефон"
+                {...form.getInputProps("phoneNumber")}
+              />
+              <Box
+                w="100%"
+                display={"flex"}
+                sx={{ justifyContent: "center" }}
+                mt={20}
+              >
+                <Button
+                  // onClick={() => history.push(AppPath.communityCourses)}
+                  type={"submit"}
+                  className={classes.root}
+                  size={"xl"}
+                  loading={inProcess}
+                >
+                  Получить код
+                </Button>
+              </Box>
+            </>
+          )}
         </form>
       </Box>
       {errors && (
         <Box display={"flex"} sx={{ justifyContent: "center", marginTop: 30 }}>
           <Text color={"red"}>{errors}</Text>
+        </Box>
+      )}
+      {code && (
+        <Box display={"flex"} sx={{ justifyContent: "center", marginTop: 30 }}>
+          <Text>{code}</Text>
         </Box>
       )}
     </AuthLayout>
