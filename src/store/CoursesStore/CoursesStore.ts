@@ -1,16 +1,19 @@
+import { CoursesService } from "@/services/CoursesService/CoursesService";
 import { ICourse } from "@/types/ICourse";
 import { makeAutoObservable, runInAction } from "mobx";
-import { MyCoursesApi } from "../api/MyCoursesApi";
+
 const courses: ICourse[] = [
     {
       id: 0,
       name: "Изучение немецкого языка",
+      created_by: 2,
       description:
         "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы, образование и международный опыт, это еще и отличный тренажер для мозга.",
       status: "on_consider",
     },
     {
       id: 1,
+      created_by: 2,
       name: "Изучение немецкого языка",
       description:
         "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы, образование и международный опыт, это еще и отличный тренажер для мозга.",
@@ -18,6 +21,7 @@ const courses: ICourse[] = [
     },
     {
       id: 2,
+      created_by: 2,
       name: "Изучение немецкого языка",
       description:
         "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы.",
@@ -25,36 +29,66 @@ const courses: ICourse[] = [
     },
     {
       id: 3,
+      created_by: 2,
       name: "Изучение немецкого языка",
       description:
         "Изучение иностранных языков дает огромное количество преимуществ.",
       status: "on_consider",
     },
   ];
-class MyCoursesStore {
-  isLoading = false;
-  courses: ICourse[] = [];
-  error = false;
 
-  fetchCourses = async (id: number) => {
-    try {
-    //const data = await MyCoursesApi.fetchAll(id);
-      runInAction(() => {
-        //this.courses = data;
-        this.courses = courses
-        this.isLoading = true;
-      });
-    } catch (err) {
-      runInAction(() => {
-        this.isLoading = true;
-        this.error = true;
-      });
+class CoursesStore {
+
+    courses: ICourse[] = [];
+    isLoading = false;
+    error = false;
+
+    constructor() {
+        makeAutoObservable(this);
     }
-  };
 
-  constructor() {
-    makeAutoObservable(this);
-  }
+    getMyCourses = async (id: number) => {
+      this.setisLoading(false);
+        try {
+            // const courses = (await CoursesService.getMyCourses(id)).data;
+           this.setCourses(courses);
+            
+        }
+        catch (e) {
+            this.setError(true);
+        }
+    }
+
+    getStudentCourses = async () => {
+      this.setisLoading(false);
+      try {
+        // const courses = (await CoursesService.getStudentCourses()).data;
+        this.setCourses(courses);
+      }
+      catch (e) {
+        this.setError(true);
+      }
+    }
+
+    setError = (error: boolean): void => {
+      runInAction(() => {
+        this.error = error;
+        this.isLoading = true;
+      })
+    }
+
+    setisLoading = (isLoading: boolean) => {
+      runInAction(() => {
+        this.isLoading = isLoading;
+      })
+    }
+
+    setCourses = (courses: ICourse[]): void => {
+      runInAction(() => {
+        this.isLoading = true;
+        this.courses = courses;
+      })
+    }
 }
 
-export default new MyCoursesStore();
+export default new CoursesStore();
