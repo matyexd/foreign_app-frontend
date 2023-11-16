@@ -23,6 +23,11 @@ export const AppPath = Object.freeze({
   myStudents: "/teacher/my-students",
 });
 
+export const CoursesUrl = Object.freeze({
+  getMyCourses: "/course_by/",
+  studentCourses: "/student_courses"
+})
+
 export const AuthUrl = Object.freeze({
   // postLogin: "/auth/login",
   // logout: "/auth/logOut",

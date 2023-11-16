@@ -1,40 +1,27 @@
-import React from "react";
-import st from "./EduCoursesList.module.scss";
+import React, { FC, useEffect } from "react";
 import CourseCard from "../../../../components/CourseCard/CourseCard";
-
-const courses = [
-  {
-    id: 0,
-    name: "Изучение немецкого языка",
-    description:
-      "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы, образование и международный опыт, это еще и отличный тренажер для мозга.",
-  },
-  {
-    id: 1,
-    name: "Изучение немецкого языка",
-    description:
-      "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы, образование и международный опыт, это еще и отличный тренажер для мозга.",
-  },
-  {
-    id: 2,
-    name: "Изучение немецкого языка",
-    description:
-      "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы.",
-  },
-  {
-    id: 3,
-    name: "Изучение немецкого языка",
-    description:
-      "Изучение иностранных языков дает огромное количество преимуществ.",
-  },
-];
+import CoursesContainer from "@/ui/CoursesContainer/CoursesContainer";
+import CoursesStore from "@/store/CoursesStore/CoursesStore";
+import { useParams } from "react-router-dom";
 
 const EduCoursesList = () => {
-  return <div className={st.list}>
-    {
-      courses.map((course) => <CourseCard course={course} key={course.id}/>)
-    }
-  </div>;
+  const params = useParams<{ id: string }>();
+
+  useEffect(() => {
+    CoursesStore.getStudentCourses();
+  }, []);
+  return (
+    <CoursesContainer
+      isLoading={CoursesStore.isLoading}
+      error={CoursesStore.error}
+    >
+      {CoursesStore.courses
+        .filter((course) => course.created_by === Number.parseInt(params.id))
+        .map((course) => (
+          <CourseCard course={course} key={course.id} />
+        ))}
+    </CoursesContainer>
+  );
 };
 
 export default EduCoursesList;
