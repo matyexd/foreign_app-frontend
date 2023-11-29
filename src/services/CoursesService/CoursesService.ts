@@ -1,7 +1,7 @@
 import { baseConfig } from "../apiConfig";
 import { Api } from "../apiService";
 import { CoursesUrl } from "@/routes/routes-enums";
-import { IGetMyCourses, IGetStudentCourses } from "./types";
+import { IGetMyCourses, IGetStudentCourses, IPostCreateCourse } from "./types";
 
 const courseInstance = new Api(baseConfig);
 
@@ -12,5 +12,9 @@ export class CoursesService {
 
     static getStudentCourses = async (): Promise<IGetStudentCourses> => {
         return await courseInstance.get(CoursesUrl.studentCourses, null, baseConfig);
+    }
+
+    static createCourse = async (payload: {name: string, description: string, id: number}): Promise<IPostCreateCourse> => {
+        return await courseInstance.post(CoursesUrl.createCourse, payload, baseConfig);
     }
 } 

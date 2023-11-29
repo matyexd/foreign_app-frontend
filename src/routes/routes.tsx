@@ -52,6 +52,15 @@ export const ROUTES: RoutesElement[] = [
     title: "Мои курсы",
   },
   {
+    path: AppPath.createCourse,
+    //component: Schools,
+    component: lazy(
+      () => import(/* webpackChunkName: "schools" */ "../views/createCourse")
+    ),
+    protected: true,
+    title: "Создание курса",
+  },
+  {
     path: AppPath.myStudents,
     //component: Schools,
     component: lazy(
