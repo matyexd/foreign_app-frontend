@@ -1,40 +1,16 @@
 import React, { useState } from "react";
 import st from "./InvateStudent.module.scss";
-import DropdownMenu from "@/ui/dropdown/DropdownMenu";
 import Input from "@/ui/input/Input";
 import { Button } from "@mantine/core";
 
-const values = [
-  {
-    value: "Немецкий язык",
-    name: "Немецкий язык",
-  },
-  {
-    value: "Английский язык",
-    name: "Английский язык",
-  },
-  {
-    value: "Болгарский язык",
-    name: "Болгарский язык",
-  },
-  {
-    value: "Испансикий язык",
-    name: "Испансикий язык",
-  },
-  {
-    value: "Узбекский язык",
-    name: "Узбекский язык",
-  },
-  {
-    value: "Эльфийский язык",
-    name: "Эльфийский язык",
-  },
-];
-
 const InvateStudent = () => {
-  const [current, setCurrent] = useState(values[0]);
   const [mail, setMail] = useState("");
   const [msg, setMsg] = useState("");
+
+  const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    submit();
+  };
 
   const submit = () => {
     if (mail) setMsg("Студент успешно приглашён");
@@ -43,13 +19,7 @@ const InvateStudent = () => {
 
   return (
     <div className={st.invate}>
-      <div className={st.invate__form}>
-        <DropdownMenu
-          values={values}
-          current={current}
-          setCurrent={setCurrent}
-          className={st.invate__drop}
-        />
+      <form className={st.invate__form} onSubmit={formSubmit}>
         <Input
           className={st.invate__input}
           placeholder="Электронная почта студента"
@@ -59,7 +29,7 @@ const InvateStudent = () => {
           }
         />
         <Button onClick={submit}>Пригласить</Button>
-      </div>
+      </form>
       <div className={st.invate__msg}>{msg}</div>
     </div>
   );

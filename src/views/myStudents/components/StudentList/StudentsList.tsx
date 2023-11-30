@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import st from "./StudentsList.module.scss";
 import StudentCard from "@/components/StudentCard/StudentCard";
-import StudentsStore from "../store/StudentsStore";
+import StudentsStore from "../../store/StudentsStore";
 const StudentsList: FC = () => {
   return (
     <div className={st.students}>

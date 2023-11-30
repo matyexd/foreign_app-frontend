@@ -14,7 +14,7 @@ export class CoursesService {
         return await courseInstance.get(CoursesUrl.studentCourses, null, baseConfig);
     }
 
-    static createCourse = async (payload: {name: string, description: string, id: number}): Promise<IPostCreateCourse> => {
-        return await courseInstance.post(CoursesUrl.createCourse, payload, baseConfig);
+    static createCourse = async (payload: {name: string, description: string, id: number}) => {
+        return await courseInstance.post<IPostCreateCourse>(CoursesUrl.createCourse, payload, baseConfig);
     }
 } 

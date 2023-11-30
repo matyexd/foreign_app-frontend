@@ -5,25 +5,21 @@ import st from "./CreateCourse.module.scss";
 import { Button } from "@mantine/core";
 import { useHistory } from "react-router-dom";
 import { AppPath } from "@/routes/routes-enums";
-import { CoursesService } from "@/services/CoursesService/CoursesService";
+import CoursesStore from "@/store/CoursesStore/CoursesStore";
 const CreateCourse = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const history = useHistory();
 
   const create = async () => {
-    try {
-      const response = await CoursesService.createCourse({
-        id: new Date().getTime(),
-        name: name,
-        description: description,
-      });
-    } catch {
-      console.log(123);
-    }
-
+    CoursesStore.createCourse({
+      name,
+      description,
+      id: new Date().getTime(),
+    });
     history.push(AppPath.myCourses);
   };
+
   return (
     <div className={st.create}>
       <Input

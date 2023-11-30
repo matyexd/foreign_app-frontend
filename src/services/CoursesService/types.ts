@@ -9,10 +9,8 @@ export interface IGetStudentCourses {
 }
 
 export interface IPostCreateCourse {
-  data: {
     data: ICourse;
     message: string;
-  }
 }
   
   
