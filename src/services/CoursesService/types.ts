@@ -7,4 +7,10 @@ export interface IGetMyCourses {
 export interface IGetStudentCourses {
   data: ICourse[];
 }
+
+export interface IPostCreateCourse {
+    data: ICourse;
+    message: string;
+}
+  
   

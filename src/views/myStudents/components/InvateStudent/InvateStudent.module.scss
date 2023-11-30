@@ -1,0 +1,22 @@
+.invate {
+    margin-top: 20px;
+}
+
+.invate__form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.invate__input {
+    flex: 0 1 50%; 
+}
+
+.invate__drop {
+    flex: 0 1 25%; 
+    min-width: 200px;
+}
+
+.invate__msg {
+    margin-top: 5px;
+}

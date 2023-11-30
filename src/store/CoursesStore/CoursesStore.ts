@@ -70,6 +70,17 @@ class CoursesStore {
       }
     }
 
+    createCourse = async (payload: {name: string, description: string, id: number}) => {
+      try {
+        // const res = (await CoursesService.createCourse(payload)).data;
+        // this.courses.push(res.data);
+        courses.push({...payload, status:"on_consider", created_by: 123132});
+      }
+      catch {
+        this.setError(true);
+      }
+    }
+
     setError = (error: boolean): void => {
       runInAction(() => {
         this.error = error;

@@ -3,7 +3,7 @@ import CoursesContainer from "@/ui/CoursesContainer/CoursesContainer";
 import React, { useEffect } from "react";
 import { observer } from "mobx-react";
 import CoursesStore from "@/store/CoursesStore/CoursesStore";
-
+import st from "./st.module.scss";
 const CoursesList = observer(() => {
   useEffect(() => {
     CoursesStore.getMyCourses(1);
@@ -12,6 +12,7 @@ const CoursesList = observer(() => {
   return (
     <>
       <CoursesContainer
+        className={st.container}
         error={CoursesStore.error}
         isLoading={CoursesStore.isLoading}
       >

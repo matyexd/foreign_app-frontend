@@ -1,0 +1,36 @@
+.input__wrapper {
+    padding: 2.2px;
+    background-color: rgba(221, 223, 230, 1);
+    border-radius: 6px;
+}
+
+
+.input {
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+    height: 100%;
+    z-index: 2;
+    padding: 16px 20px;
+    background-color: rgba(221, 223, 230, 1);
+    font-size: 14px;
+    color: rgba(0, 9, 60, 1);
+    border: none;
+    &::placeholder {
+        color: rgba(79, 79, 79, 1);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.input_withValue {
+    input {
+        background-color: rgba(234, 235, 240, 1);
+    }
+    background: linear-gradient(90deg, #F7941D 0%, #27AAE1 100%),
+linear-gradient(0deg, #EAEBF0, #EAEBF0);
+
+}
+
