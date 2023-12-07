@@ -6,14 +6,14 @@ const courses: ICourse[] = [
     {
       id: 0,
       name: "Изучение немецкого языка",
-      created_by: 2,
+      authorId: 2,
       description:
         "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы, образование и международный опыт, это еще и отличный тренажер для мозга.",
       status: "on_consider",
     },
     {
       id: 1,
-      created_by: 2,
+      authorId: 2,
       name: "Изучение немецкого языка",
       description:
         "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы, образование и международный опыт, это еще и отличный тренажер для мозга.",
@@ -21,7 +21,7 @@ const courses: ICourse[] = [
     },
     {
       id: 2,
-      created_by: 2,
+      authorId: 2,
       name: "Изучение немецкого языка",
       description:
         "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы.",
@@ -29,7 +29,7 @@ const courses: ICourse[] = [
     },
     {
       id: 3,
-      created_by: 2,
+      authorId: 2,
       name: "Изучение немецкого языка",
       description:
         "Изучение иностранных языков дает огромное количество преимуществ.",
@@ -50,11 +50,13 @@ class CoursesStore {
     getMyCourses = async (id: number) => {
       this.setisLoading(false);
         try {
-            // const courses = (await CoursesService.getMyCourses(id)).data;
-           this.setCourses(courses);
+          //  const courses = (await CoursesService.getMyCourses(id)).data;
+          this.courses = courses;
+          this.setCourses(courses);
             
         }
         catch (e) {
+          if (e instanceof Error) console.log(e.message)
             this.setError(true);
         }
     }
@@ -70,13 +72,12 @@ class CoursesStore {
       }
     }
 
-    createCourse = async (payload: {name: string, description: string, id: number}) => {
+    createCourse = async (payload: {name: string, description: string}) => {
       try {
-        // const res = (await CoursesService.createCourse(payload)).data;
-        // this.courses.push(res.data);
-        courses.push({...payload, status:"on_consider", created_by: 123132});
+        const res = (await CoursesService.createCourse(payload)).data;
+        this.courses.push(res.data);
       }
-      catch {
+      catch (e){
         this.setError(true);
       }
     }

@@ -1,7 +1,7 @@
 export interface ICourse {
   id: number;
   name: string;
-  created_by: number;
+  authorId: number;
   status: string;
   description: string;
 }

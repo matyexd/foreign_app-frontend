@@ -16,7 +16,7 @@ class Api {
           return config;
         }
         if (!config.headers.Authorization && token) {
-          config.headers.Authorization = `Bearer ${token}`;
+          config.headers.Authorization = `${token}`;
         }
 
         return config;

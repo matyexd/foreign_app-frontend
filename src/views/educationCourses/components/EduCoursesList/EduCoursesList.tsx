@@ -16,7 +16,7 @@ const EduCoursesList = () => {
       error={CoursesStore.error}
     >
       {CoursesStore.courses
-        .filter((course) => course.created_by === Number.parseInt(params.id))
+        .filter((course) => course.authorId === Number.parseInt(params.id))
         .map((course) => (
           <CourseCard course={course} key={course.id} />
         ))}

@@ -1,7 +1,7 @@
-export const url = "http://localhost:8080";
+export const url = "https://back.lang.yourtar.ru";
 export const authUrl = "https://back.yourtar.ru";
 
-const baseURL = `${url}/api/v1`;
+const baseURL = `${url}/api/`;
 const baseAuthURL = `${authUrl}/api`;
 
 const baseConfig = {
