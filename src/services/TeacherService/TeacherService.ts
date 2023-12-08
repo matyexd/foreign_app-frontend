@@ -12,7 +12,7 @@ export class TeacherService {
     const response = await teacherInstance
       .post<IInviteResponse>(TeacherUrl.inviteStudent, {id}, baseConfig)
       .then((res) => res.data);
-
+    
     return response;
   };
 }

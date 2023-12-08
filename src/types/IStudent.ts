@@ -1,5 +1,5 @@
 export interface IStudent {
     id: number;
-    name: string;
+    username: string;
     img: string;
 }
