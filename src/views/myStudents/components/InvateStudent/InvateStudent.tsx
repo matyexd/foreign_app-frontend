@@ -14,7 +14,7 @@ const InvateStudent = observer(() => {
   };
 
   const submit = () => {
-    TeacherStore.inviteStudent(Number(mail));
+    if (mail) TeacherStore.inviteStudent(Number(mail));
   };
 
   return (

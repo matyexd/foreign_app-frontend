@@ -13,7 +13,7 @@ const StudentCard: FC<Props> = ({ student }) => {
         <div className={st.student__img}>
           <img src={student.img} alt="" />
         </div>
-        <div className={st.student__name}>{student.name}</div>
+        <div className={st.student__name}>{student.username}</div>
         <button className={st.student__btn} onClick={() => {}}>
           <div className={st.btn__icon}></div>
           Исключить из курса

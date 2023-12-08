@@ -21,7 +21,9 @@ class TeacherStore {
             this.message = res.message;
         }
         catch (err) {
-
+            if (err instanceof Error) this.message = err.message;
+            else if (typeof err === 'string') this.message = err
+            else this.message = "Приглашение уже отправлено для этого пользователя"
         }
     }
 
