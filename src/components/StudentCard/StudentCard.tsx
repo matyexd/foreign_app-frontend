@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import st from "./StudentCard.module.scss";
-import { IStudent } from "@/types/IStuden";
+import { IStudent } from "@/types/IStudent";
 
 interface Props {
   student: IStudent;

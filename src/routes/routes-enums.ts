@@ -25,10 +25,18 @@ export const AppPath = Object.freeze({
 });
 
 export const CoursesUrl = Object.freeze({
-  getMyCourses: "/course_by/",
-  studentCourses: "/student_courses",
-  createCourse: "/course/add",
+  getMyCourses: "course_by",
+  studentCourses: "student_courses",
+  createCourse: "course/add",
 
+})
+
+export const StudentsUrl = Object.freeze({
+  getStudentByTeacher: "getStudents",
+})
+
+export const TeacherUrl = Object.freeze({
+  inviteStudent: "invite",
 })
 
 export const AuthUrl = Object.freeze({

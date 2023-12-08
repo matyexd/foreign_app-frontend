@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import st from "./InvateStudent.module.scss";
 import Input from "@/ui/input/Input";
 import { Button } from "@mantine/core";
+import TeacherStore from "@/store/TeacherStore/TeacherStore";
+import { observer } from "mobx-react";
 
-const InvateStudent = () => {
+const InvateStudent = observer(() => {
   const [mail, setMail] = useState("");
-  const [msg, setMsg] = useState("");
 
   const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -13,8 +14,7 @@ const InvateStudent = () => {
   };
 
   const submit = () => {
-    if (mail) setMsg("Студент успешно приглашён");
-    else setMsg("Пользователь с такой почтой не был найден");
+    TeacherStore.inviteStudent(Number(mail));
   };
 
   return (
@@ -30,9 +30,9 @@ const InvateStudent = () => {
         />
         <Button onClick={submit}>Пригласить</Button>
       </form>
-      <div className={st.invate__msg}>{msg}</div>
+      <div className={st.invate__msg}>{TeacherStore.message}</div>
     </div>
   );
-};
+});
 
 export default InvateStudent;

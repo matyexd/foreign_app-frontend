@@ -7,14 +7,14 @@ const courseInstance = new Api(baseConfig);
 
 export class CoursesService {
     static getMyCourses = async (id: number): Promise<IGetMyCourses> => {
-        return await courseInstance.get(CoursesUrl.getMyCourses + id, null, baseConfig);
+        return await courseInstance.get(CoursesUrl.getMyCourses, id, baseConfig);
     }
 
     static getStudentCourses = async (): Promise<IGetStudentCourses> => {
         return await courseInstance.get(CoursesUrl.studentCourses, null, baseConfig);
     }
 
-    static createCourse = async (payload: {name: string, description: string, id: number}) => {
+    static createCourse = async (payload: {name: string, description: string}) => {
         return await courseInstance.post<IPostCreateCourse>(CoursesUrl.createCourse, payload, baseConfig);
     }
 } 

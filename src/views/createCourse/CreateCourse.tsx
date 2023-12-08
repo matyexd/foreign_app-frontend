@@ -15,7 +15,6 @@ const CreateCourse = () => {
     CoursesStore.createCourse({
       name,
       description,
-      id: new Date().getTime(),
     });
     history.push(AppPath.myCourses);
   };
