@@ -37,6 +37,7 @@ export const StudentsUrl = Object.freeze({
 
 export const TeacherUrl = Object.freeze({
   inviteStudent: "invite",
+  getTeachers: "getTeachers"
 })
 
 export const AuthUrl = Object.freeze({

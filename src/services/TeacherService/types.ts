@@ -1,3 +1,5 @@
+import { ITeacher } from "@/types/ITeacher";
+
 export interface IInviteResponse {
     data: {
         user_id: number;
@@ -5,4 +7,9 @@ export interface IInviteResponse {
         accept: boolean;
     }
     message: string
+}
+
+export interface IGetTeachersResponse {
+    data: ITeacher[];
+    massage: string
 }
