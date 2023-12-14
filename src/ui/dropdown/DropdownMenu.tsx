@@ -36,7 +36,7 @@ const DropdownMenu: FC<Props> = ({
         className={`${st.menu__head} ${open ? st.menu__head_open : ""}`}
         onClick={() => setOpen(!open)}
       >
-        {current.name}
+        {current.value}. {current.name}
       </div>
 
       {open && (
@@ -51,7 +51,7 @@ const DropdownMenu: FC<Props> = ({
                 }}
                 className={st.menu__item}
               >
-                {value.name}
+                {value.value}. {value.name}
               </div>
             ))}
           </div>

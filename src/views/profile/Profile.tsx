@@ -1,7 +1,6 @@
 import { useParams, useHistory } from "react-router-dom";
 import { Tabs } from "@mantine/core";
 import ProfileSettings from "./ProfileSettings/ProfileSettings";
-import Teaching from "./Teaching/Teaching";
 import ResetPassword from "./ResetPassword/ResetPassword";
 import { observer } from "mobx-react";
 
@@ -21,7 +20,6 @@ const Profile = observer(() => {
           <Tabs.Tab value="reset_password" disabled>
             Сброс пароля
           </Tabs.Tab>
-          <Tabs.Tab value="teaching">Преподавание</Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value={"settings"} pt="xs">
@@ -29,9 +27,6 @@ const Profile = observer(() => {
         </Tabs.Panel>
         <Tabs.Panel value={"reset_password"} pt="xs">
           <ResetPassword />
-        </Tabs.Panel>
-        <Tabs.Panel value={"teaching"} pt="xs">
-          <Teaching />
         </Tabs.Panel>
       </Tabs>
     </>

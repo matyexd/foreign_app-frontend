@@ -1,0 +1,16 @@
+.section {
+    margin-top: 50px;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.section__title {
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.section__title {
+    margin-top: 15px;
+}

@@ -6,6 +6,7 @@ import { observer } from "mobx-react";
 import { useRootStore } from "@/hooks/mobxStoreHooks/useStore";
 import { FormEvent } from "react";
 import { AppPath } from "@/routes/routes-enums";
+import { ROLES, ROLES_ITEMS } from "@/constants/Roles";
 
 const useStyles = createStyles(() => ({
   root: {
@@ -24,15 +25,15 @@ export const Login = observer(() => {
   const { classes } = useStyles();
   const store = useRootStore();
   const { postGetCode, inProcess, errors, code, postLogin } = store.authStore;
+  const { setRole } = store.profileStore;
   const history = useHistory();
-  console.log(code);
-  console.log(errors);
 
-  const handleLogin = (values: FormValues, event: FormEvent) => {
+  const handleLogin = async (values: FormValues, event: FormEvent) => {
     event.preventDefault();
-    console.log(values);
     if (code) {
-      postLogin({ code: values.code });
+      const roles = await postLogin({ code: values.code });
+      if (roles.indexOf(ROLES.TEACHER) != -1) setRole(ROLES_ITEMS.TEACHER);
+      else setRole(ROLES_ITEMS.STUDENT);
     } else {
       postGetCode({ phoneValue: values.phoneNumber });
     }

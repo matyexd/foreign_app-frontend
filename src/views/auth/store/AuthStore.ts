@@ -92,7 +92,7 @@ class AuthStore {
     this.setInProcess();
   };
 
-  postLogin = async ({ code }: { code: string }) => {
+  postLogin = async ({ code }: { code: string }): Promise<string[]> => {
     const payload = {
       phone: this.phoneNumber,
       project: "adminka", // оставляем пока так
@@ -110,12 +110,16 @@ class AuthStore {
       await this.appendToken({ token: data.data.token });
       this.setCode();
       this.setPhoneNumber();
+      return data.data.user.roles
     } catch (e) {
       console.log(e);
       this.setErrors("Неверно указан номер");
+      return []
+    } finally {
+      this.setInProcess();
     }
 
-    this.setInProcess();
+    
   };
 
   logout = () => {

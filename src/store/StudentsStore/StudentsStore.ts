@@ -51,13 +51,14 @@ class StudentsStore {
             const response = await StudentsService.getStudentByTeacher();
             this.data = response.data;
             this.message = response.message;
-            this.isLoading = true;
         }
         catch (e) {
             this.data = [];
-            this.isLoading = true;
             this.error = true;
             this.message = "ошибка";
+        } finally {
+            this.isLoading = true;
+
         }
     }
 }

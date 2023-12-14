@@ -1,10 +1,13 @@
 import { TeacherService } from "@/services/TeacherService/TeacherService";
+import { ITeacher } from "@/types/ITeacher";
 import { configure, makeAutoObservable } from "mobx";
 
 class TeacherStore {
     
+    teachers: ITeacher[] = [];
     message: string = "";
-
+    isLoadingComplete: boolean = false;
+    error: string = ""; 
     constructor() {
         makeAutoObservable(this);
         configure(
@@ -12,6 +15,21 @@ class TeacherStore {
                 enforceActions: "never"
             }
         )
+    }
+
+    getTeachers = async () => {
+        this.isLoadingComplete = false;
+        try {
+            const response = await TeacherService.getTeachers();
+            this.teachers = response.data;
+            this.message = response.message;
+        }
+        catch (err) {
+            this.handleError(err);
+        }
+        finally {
+            this.isLoadingComplete = true;
+        }
     }
 
 
@@ -25,6 +43,11 @@ class TeacherStore {
             else if (typeof err === 'string') this.message = err
             else this.message = "Приглашение уже отправлено для этого пользователя"
         }
+    }
+
+    handleError = (err: any) => {
+        if (err instanceof Error) this.error = err.message;
+        if (typeof err == "string") this.error = err;
     }
 
 }
