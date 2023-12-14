@@ -70,6 +70,15 @@ export const ROUTES: RoutesElement[] = [
     title: "Мои студенты",
   },
   {
+    path: AppPath.courseView,
+    //component: Schools,
+    component: lazy(
+      () => import(/* webpackChunkName: "schools" */ "../views/course")
+    ),
+    protected: true,
+    title: "Информация о курсе",
+  },
+  {
     path: AppPath.educationCourses,
     //component: Schools,
     component: lazy(
@@ -88,7 +97,6 @@ export const ROUTES: RoutesElement[] = [
     protected: true,
     title: "Обучение",
   },
-
   {
     path: AppPath.purchasedCourses,
     //component: PurchasedCourses,
