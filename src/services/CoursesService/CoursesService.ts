@@ -6,8 +6,9 @@ import { IGetMyCourses, IGetStudentCourses, IPostCreateCourse } from "./types";
 const courseInstance = new Api(baseConfig);
 
 export class CoursesService {
-    static getMyCourses = async (id: number): Promise<IGetMyCourses> => {
-        return await courseInstance.get(CoursesUrl.getMyCourses, id, baseConfig);
+    static getMyCourses = async (): Promise<IGetMyCourses> => {
+        const response = await courseInstance.get(CoursesUrl.getMyCourses, null, baseConfig);
+        return response.data;
     }
 
     static getStudentCourses = async (): Promise<IGetStudentCourses> => {

@@ -42,6 +42,7 @@ class CoursesStore {
     courses: ICourse[] = [];
     isLoading = false;
     error = false;
+    message: string  = "";
 
     constructor() {
         makeAutoObservable(this);
@@ -50,15 +51,13 @@ class CoursesStore {
     getMyCourses = async (id: number) => {
       this.setisLoading(false);
         try {
-          //  const courses = (await CoursesService.getMyCourses(id)).data;
-          this.courses = courses;
-          this.setCourses(courses);
-            
+          const response = await CoursesService.getMyCourses();
+          this.message = response.massage;
+          this.setCourses(response.data);
         }
         catch (e) {
-          if (e instanceof Error) console.log(e.message)
-            this.setError(true);
-        }
+           this.setError(true);
+        } 
     }
 
     getStudentCourses = async () => {
