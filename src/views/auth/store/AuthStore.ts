@@ -3,11 +3,13 @@ import { ROLES } from "../../../constants/Roles";
 import AuthService from "../../../services/AuthService/AuthService";
 import { TokenService } from "@/services/TokenService";
 import { AppPath } from "@/routes/routes-enums";
+import { RolesService } from "@/services/RolesService";
 
 class AuthStore {
   history: any = {};
   phoneNumber = "";
   inProcess = false;
+  isAuth = false;
   errors = "";
   code = "";
 
@@ -19,6 +21,7 @@ class AuthStore {
         inProcess: observable,
         code: observable,
         history: observable,
+        isAuth: observable,
       },
       { autoBind: true }
     );
@@ -42,6 +45,10 @@ class AuthStore {
 
   setCode = (value: string = "") => {
     this.code = value;
+  };
+
+  setAuth = (value: boolean) => {
+    this.isAuth = value;
   };
 
   login = async () => {
@@ -92,7 +99,7 @@ class AuthStore {
     this.setInProcess();
   };
 
-  postLogin = async ({ code }: { code: string }): Promise<string[]> => {
+  postLogin = async ({ code }: { code: string }) => {
     const payload = {
       phone: this.phoneNumber,
       project: "adminka", // оставляем пока так
@@ -108,13 +115,13 @@ class AuthStore {
     try {
       const { data } = await AuthService.postLogin(payload);
       await this.appendToken({ token: data.data.token });
+      RolesService.setRoles(data.data.user.roles)
+      this.setAuth(true);
       this.setCode();
       this.setPhoneNumber();
-      return data.data.user.roles
     } catch (e) {
       console.log(e);
       this.setErrors("Неверно указан номер");
-      return []
     } finally {
       this.setInProcess();
     }
@@ -124,6 +131,7 @@ class AuthStore {
 
   logout = () => {
     TokenService.removeToken();
+    RolesService.removeRoles();
     this.history.push(AppPath.signIn);
   };
 }
