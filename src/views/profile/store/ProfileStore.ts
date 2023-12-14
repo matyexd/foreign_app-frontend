@@ -19,7 +19,7 @@ class ProfileStore {
         setFirstName: action,
         setLastName: action,
         setRole: action,
-        setEmail: observable,
+        setEmail: action,
       },
       { autoBind: true }
     );

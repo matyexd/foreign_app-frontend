@@ -14,7 +14,8 @@ export interface PostLoginData {
       id: number;
       phone: string;
       userIdentifier: string;
-      roles: RolesType;
+      // roles: RolesType;
+      roles: string[];
     };
   };
   message: string;
