@@ -3,8 +3,9 @@ import CourseCard from "../../../../components/CourseCard/CourseCard";
 import CoursesContainer from "@/ui/CoursesContainer/CoursesContainer";
 import CoursesStore from "@/store/CoursesStore/CoursesStore";
 import { useParams } from "react-router-dom";
+import { observer } from "mobx-react";
 
-const EduCoursesList = () => {
+const EduCoursesList = observer(() => {
   const params = useParams<{ id: string }>();
 
   useEffect(() => {
@@ -22,6 +23,6 @@ const EduCoursesList = () => {
         ))}
     </CoursesContainer>
   );
-};
+});
 
 export default EduCoursesList;

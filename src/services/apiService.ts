@@ -53,6 +53,11 @@ class Api {
     const { data, headers } = await this.service.get(url, newConfig);
     return { data: keysToCamel(data), headers };
   }
+
+  async delete<T>(url: string, body:any, config?: any): Promise<{ data: T; headers: any }> {
+    const { data, headers } = await this.service.delete<T>(url, {data: body, ...config});
+    return { data: data, headers };
+  }
 }
 
 export { Api };

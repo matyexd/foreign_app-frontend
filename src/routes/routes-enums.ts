@@ -38,11 +38,12 @@ export const CoursesUrl = Object.freeze({
 
 export const StudentsUrl = Object.freeze({
   getStudentByTeacher: "getStudents",
+  untieStudent: "untie"
 })
 
 export const TeacherUrl = Object.freeze({
   inviteStudent: "invite",
-  getTeachers: "getTeachers"
+  getTeachers: "getTeachers",
 })
 
 export const AuthUrl = Object.freeze({

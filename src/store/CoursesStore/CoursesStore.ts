@@ -54,9 +54,9 @@ class CoursesStore {
 
     getMyCourses = async () => {
       this.setisLoading(false);
-        try {
+      this.message = "";
+      try {
           const response = await CoursesService.getMyCourses();
-          this.message = response.message;
           this.setCourses(response.data);
         }
         catch (e) {
@@ -66,9 +66,9 @@ class CoursesStore {
 
     getCourseById = async (id: string) => {
       this.setisLoading(false);
-        try {
+      this.message = "";
+      try {
           const response = await CoursesService.getById(id);
-          this.message = response.message;
           this.setCourses([response.data]);
         }
         catch (e) {
@@ -77,6 +77,7 @@ class CoursesStore {
     }
 
     assignStudent = async (payload: {course_id: number, user_id: number}) => {
+      this.message = "";
       try {
         const response = await CoursesService.assignStudentToCourse(payload);
         this.message = response.message;
@@ -88,6 +89,7 @@ class CoursesStore {
 
     getStudentCourses = async () => {
       this.setisLoading(false);
+      this.message = "";
       try {
         // const courses = (await CoursesService.getStudentCourses()).data;
         this.setCourses(courses);
@@ -98,6 +100,7 @@ class CoursesStore {
     }
 
     createCourse = async (payload: {name: string, description: string}) => {
+      this.message = "";
       try {
         const res = (await CoursesService.createCourse(payload)).data;
         this.courses.push(res.data);

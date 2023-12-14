@@ -4,6 +4,7 @@ import Input from "@/ui/input/Input";
 import { Button } from "@mantine/core";
 import TeacherStore from "@/store/TeacherStore/TeacherStore";
 import { observer } from "mobx-react";
+import StudentsStore from "@/store/StudentsStore/StudentsStore";
 
 const InvateStudent = observer(() => {
   const [mail, setMail] = useState("");

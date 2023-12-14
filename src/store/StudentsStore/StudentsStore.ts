@@ -10,7 +10,7 @@ import { StudentsService } from "@/services/StudentsService/StudentsService";
 class StudentsStore {
     isLoading = false;
     message = "";
-    error = false;
+    error = "";
     data: IStudent[] = [
         // { id: 0,
         //   name: "Воробьев Лев Станиславович",
@@ -45,21 +45,43 @@ class StudentsStore {
         )
     }
 
+    
+    untieStudent = async (id: number) => {
+        this.message = "";
+        try {
+            const response = await StudentsService.untieStudent(id);
+            this.data = this.data.filter(student => student.id !== id);
+            this.message = response.message;
+        }
+        catch (err) {
+            this.handleError(err);
+        }
+        finally {
+            this.isLoading = true;
+        }
+    }
+
+
     getStudentsByTeacher = async () => {
+        this.message = "";
         this.isLoading = false
         try {
             const response = await StudentsService.getStudentByTeacher();
             this.data = response.data;
-            this.message = response.message;
         }
-        catch (e) {
+        catch (err) {
             this.data = [];
-            this.error = true;
-            this.message = "ошибка";
+            this.handleError(err);
         } finally {
             this.isLoading = true;
 
         }
+    }
+
+    handleError = (err: any) => {
+        if (err instanceof Error) this.error = err.message;
+        else if (typeof err == "string") this.error = err;
+        else this.message = "Связь не была найдена"
     }
 }
 

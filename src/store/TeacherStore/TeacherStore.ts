@@ -19,10 +19,10 @@ class TeacherStore {
 
     getTeachers = async () => {
         this.isLoadingComplete = false;
+        this.message = "";
         try {
             const response = await TeacherService.getTeachers();
             this.teachers = response.data;
-            this.message = response.message;
         }
         catch (err) {
             this.handleError(err);
@@ -34,7 +34,8 @@ class TeacherStore {
 
 
     inviteStudent = async (id: number) => {
-        try {
+        this.message = "";
+         try {
             const res = await TeacherService.inviteStudentToTeacher(id);
             this.message = res.message;
         }

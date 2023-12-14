@@ -25,15 +25,12 @@ export const Login = observer(() => {
   const { classes } = useStyles();
   const store = useRootStore();
   const { postGetCode, inProcess, errors, code, postLogin } = store.authStore;
-  const { setRole } = store.profileStore;
   const history = useHistory();
 
   const handleLogin = async (values: FormValues, event: FormEvent) => {
     event.preventDefault();
     if (code) {
-      const roles = await postLogin({ code: values.code });
-      if (roles.indexOf(ROLES.TEACHER) != -1) setRole(ROLES_ITEMS.TEACHER);
-      else setRole(ROLES_ITEMS.STUDENT);
+      postLogin({ code: values.code });
     } else {
       postGetCode({ phoneValue: values.phoneNumber });
     }

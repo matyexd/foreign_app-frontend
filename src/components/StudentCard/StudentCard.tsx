@@ -4,9 +4,10 @@ import { IStudent } from "@/types/IStudent";
 
 interface Props {
   student: IStudent;
+  deleteStudent: (id: number) => void;
 }
 
-const StudentCard: FC<Props> = ({ student }) => {
+const StudentCard: FC<Props> = ({ student, deleteStudent }) => {
   return (
     <div className={st.student}>
       <div className={st.student__body}>
@@ -14,9 +15,12 @@ const StudentCard: FC<Props> = ({ student }) => {
           <img src={student.img} alt="" />
         </div>
         <div className={st.student__name}>{student.username}</div>
-        <button className={st.student__btn} onClick={() => {}}>
+        <button
+          className={st.student__btn}
+          onClick={() => deleteStudent(student.id)}
+        >
           <div className={st.btn__icon}></div>
-          Исключить из курса
+          Отвязать
         </button>
       </div>
     </div>

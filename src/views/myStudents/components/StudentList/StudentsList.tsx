@@ -7,10 +7,18 @@ const StudentsList: FC = observer(() => {
   useEffect(() => {
     StudentsStore.getStudentsByTeacher();
   }, []);
+
+  const deleteStudent = (id: number) => {
+    StudentsStore.untieStudent(id);
+  };
   return (
     <div className={st.students}>
       {StudentsStore.data.map((student) => (
-        <StudentCard key={student.id} student={student} />
+        <StudentCard
+          key={student.id}
+          deleteStudent={deleteStudent}
+          student={student}
+        />
       ))}
     </div>
   );
