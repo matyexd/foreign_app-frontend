@@ -9,7 +9,11 @@ export class StudentsService {
   static getStudentByTeacher = async (): Promise<IGetStudentsByTeacher> => {
     const response = await studentInstance
       .get(StudentsUrl.getStudentByTeacher, null, baseConfig).then(response => response.data);     
-
     return await response;
   };
+
+  static untieStudent = async (id: number) => {
+    const response = await studentInstance.delete<{data: any, message: string}>(StudentsUrl.untieStudent, {id: id}, baseConfig);
+    return response.data;
+  }
 }
