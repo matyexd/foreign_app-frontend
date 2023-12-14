@@ -22,7 +22,7 @@ class TeacherStore {
         try {
             const response = await TeacherService.getTeachers();
             this.teachers = response.data;
-            this.message = response.massage;
+            this.message = response.message;
         }
         catch (err) {
             this.handleError(err);

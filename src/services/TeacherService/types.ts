@@ -11,5 +11,5 @@ export interface IInviteResponse {
 
 export interface IGetTeachersResponse {
     data: ITeacher[];
-    massage: string
+    message: string
 }

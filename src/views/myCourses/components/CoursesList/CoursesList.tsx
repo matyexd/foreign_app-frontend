@@ -6,7 +6,7 @@ import CoursesStore from "@/store/CoursesStore/CoursesStore";
 import st from "./st.module.scss";
 const CoursesList = observer(() => {
   useEffect(() => {
-    CoursesStore.getMyCourses(1);
+    CoursesStore.getMyCourses();
   }, []);
 
   return (

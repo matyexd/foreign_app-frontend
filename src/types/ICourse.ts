@@ -4,4 +4,5 @@ export interface ICourse {
   authorId: number;
   status: string;
   description: string;
+  courseForUsers: number[];
 }

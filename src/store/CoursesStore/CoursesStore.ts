@@ -10,7 +10,8 @@ const courses: ICourse[] = [
       description:
         "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы, образование и международный опыт, это еще и отличный тренажер для мозга.",
       status: "on_consider",
-    },
+      courseForUsers: [],
+},
     {
       id: 1,
       authorId: 2,
@@ -18,6 +19,7 @@ const courses: ICourse[] = [
       description:
         "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы, образование и международный опыт, это еще и отличный тренажер для мозга.",
       status: "on_consider",
+      courseForUsers: [],
     },
     {
       id: 2,
@@ -26,6 +28,7 @@ const courses: ICourse[] = [
       description:
         "Изучение иностранных языков дает огромное количество преимуществ. Помимо очевидных — свобода общения, карьерные перспективы.",
       status: "on_consider",
+      courseForUsers: [],
     },
     {
       id: 3,
@@ -34,6 +37,7 @@ const courses: ICourse[] = [
       description:
         "Изучение иностранных языков дает огромное количество преимуществ.",
       status: "on_consider",
+      courseForUsers: [],
     },
   ];
 
@@ -48,16 +52,38 @@ class CoursesStore {
         makeAutoObservable(this);
     }
 
-    getMyCourses = async (id: number) => {
+    getMyCourses = async () => {
       this.setisLoading(false);
         try {
           const response = await CoursesService.getMyCourses();
-          this.message = response.massage;
+          this.message = response.message;
           this.setCourses(response.data);
         }
         catch (e) {
            this.setError(true);
         } 
+    }
+
+    getCourseById = async (id: string) => {
+      this.setisLoading(false);
+        try {
+          const response = await CoursesService.getById(id);
+          this.message = response.message;
+          this.setCourses([response.data]);
+        }
+        catch (e) {
+           this.setError(true);
+        } 
+    }
+
+    assignStudent = async (payload: {course_id: number, user_id: number}) => {
+      try {
+        const response = await CoursesService.assignStudentToCourse(payload);
+        this.message = response.message;
+      }
+      catch (e) {
+        this.setError(true);
+     } 
     }
 
     getStudentCourses = async () => {

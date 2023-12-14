@@ -14,9 +14,17 @@ const CoursesContainer: FC<Props> = ({
 }) => {
   return (
     <div className={`${className} ${st.container}`} {...props}>
-      {error && isLoading ? <>Ошибка</> : ""}
+      {error && isLoading ? (
+        <>На сервере произошла ошибка при запросе курсов</>
+      ) : (
+        ""
+      )}
       {!error && isLoading ? children : ""}
-      {React.Children.toArray(children).length === 0 ? <>Нет курсов</> : ""}
+      {!error && React.Children.toArray(children).length === 0 ? (
+        <>Нет курсов</>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
