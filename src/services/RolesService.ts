@@ -8,7 +8,7 @@ export class RolesService {
     }
 
     static getRoles(): string[] {
-       return JSON.parse(localStorage.getItem("roles") ?? "");
+       return localStorage.getItem("roles") ? JSON.parse(localStorage.getItem("roles") ?? "") : "";
     }
 
     static removeRoles() {

@@ -17,16 +17,14 @@ const useConstructor = (callBack = () => {}) => {
 const App = observer(() => {
   const history = useHistory();
   const store = useRootStore();
-  const { setHistory, setAuth, isAuth } = store.authStore;
+  const { setHistory, isAuth } = store.authStore;
   const { setRole } = store.profileStore;
 
   useEffect(() => {
-    if (TokenService.getToken()) setAuth(true);
-    if (isAuth) {
-      if (RolesService.checkRoleInRoles(ROLES_ITEMS.TEACHER))
-        setRole(ROLES_ITEMS.TEACHER);
-      else setRole(ROLES_ITEMS.STUDENT);
-    }
+    console.log(123);
+    if (RolesService.checkRoleInRoles(ROLES_ITEMS.TEACHER))
+      setRole(ROLES_ITEMS.TEACHER);
+    else setRole(ROLES_ITEMS.STUDENT);
   }, [isAuth]);
 
   useConstructor(() => {

@@ -87,7 +87,6 @@ class AuthStore {
 
     try {
       const { data } = await AuthService.postGetCode(payload);
-      console.log(data);
       this.setCode(data.data.code);
       this.setPhoneNumber(phoneValue);
     } catch (e) {
@@ -132,6 +131,7 @@ class AuthStore {
   logout = () => {
     TokenService.removeToken();
     RolesService.removeRoles();
+    this.setAuth(false);
     this.history.push(AppPath.signIn);
   };
 }
