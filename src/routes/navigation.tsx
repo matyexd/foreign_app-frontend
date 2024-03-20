@@ -11,7 +11,6 @@ import { AppPath } from "./routes-enums";
 
 export const getNavigation = () => ({
   main: [
-    
     {
       href: AppPath.schools,
       title: "Школы",

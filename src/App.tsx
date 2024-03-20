@@ -4,8 +4,8 @@ import { useRootStore } from "@/hooks/mobxStoreHooks/useStore";
 import { useHistory } from "react-router-dom";
 import { ROLES_ITEMS } from "./constants/Roles";
 import { RolesService } from "./services/RolesService";
-import { TokenService } from "./services/TokenService";
 import { observer } from "mobx-react";
+import { useFirebase } from "./hooks/firebase";
 
 const useConstructor = (callBack = () => {}) => {
   const hasBeenCalled = React.useRef(false);
@@ -21,7 +21,6 @@ const App = observer(() => {
   const { setRole } = store.profileStore;
 
   useEffect(() => {
-    console.log(123);
     if (RolesService.checkRoleInRoles(ROLES_ITEMS.TEACHER))
       setRole(ROLES_ITEMS.TEACHER);
     else setRole(ROLES_ITEMS.STUDENT);
@@ -30,6 +29,8 @@ const App = observer(() => {
   useConstructor(() => {
     setHistory(history);
   });
+
+  useFirebase();
 
   return (
     <div className="App">
