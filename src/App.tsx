@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 import { ROLES_ITEMS } from "./constants/Roles";
 import { RolesService } from "./services/RolesService";
 import { observer } from "mobx-react";
-import { firebaseMessaging } from "./constants/firebase";
-import { getToken } from "firebase/messaging";
+import { useFirebase } from "./hooks/firebase";
+
 const useConstructor = (callBack = () => {}) => {
   const hasBeenCalled = React.useRef(false);
   if (hasBeenCalled.current) return;
@@ -26,14 +26,11 @@ const App = observer(() => {
     else setRole(ROLES_ITEMS.STUDENT);
   }, [isAuth]);
 
-  //
-  useEffect(() => {
-    getToken(firebaseMessaging).then((result) => console.log(result));
-  }, []);
-
   useConstructor(() => {
     setHistory(history);
   });
+
+  useFirebase();
 
   return (
     <div className="App">

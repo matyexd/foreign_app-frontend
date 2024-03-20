@@ -38,4 +38,16 @@ export class TokenService {
   static getToken() {
     return TokenService.storage.getItem("token") || "";
   }
+
+  static setFirebaseToken = (token: string) =>
+    TokenService.storage.setItem("firebase_token", token);
+
+  static removeFirebaseToken = () =>
+    TokenService.storage.removeItem("firebase_token");
+
+  static checkFirebaseToken = () =>
+    !!TokenService.storage.getItem("firebase_token");
+
+  static getFirebaseToken = () =>
+    TokenService.storage.getItem("firebase_token");
 }
