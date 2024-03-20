@@ -1,8 +1,9 @@
-import { clsx, Group, Header } from "@mantine/core";
+import { clsx, Group, Header, Box } from "@mantine/core";
 import styles from "./LayoutHeader.module.scss";
 import { useHistory } from "react-router-dom";
 import { ArrowLeft } from "tabler-icons-react";
 import ProfileMenu from "./ProfileMenu";
+import notification from "../../../assets/icons/notification.svg";
 import { FC } from "react";
 
 interface ILayoutHeaderProps {
@@ -26,6 +27,14 @@ const LayoutHeader: FC<ILayoutHeaderProps> = ({ title, back }) => {
       )}
 
       <Group ml="auto">
+        <Box>
+          <img
+            src={notification}
+            alt="notification"
+            style={{ cursor: "pointer" }}
+            onClick={() => console.log(33)}
+          />
+        </Box>
         <ProfileMenu />
       </Group>
     </Header>
