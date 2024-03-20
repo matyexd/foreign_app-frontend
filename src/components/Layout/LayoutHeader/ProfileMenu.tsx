@@ -1,8 +1,9 @@
-import { Button, Menu, Text } from "@mantine/core";
+import { Button, Menu, Text, Box, Modal } from "@mantine/core";
 import { Logout, User } from "tabler-icons-react";
 import { useHistory } from "react-router-dom";
 import { AppPath } from "@/routes/routes-enums";
 import { useRootStore } from "@/hooks/mobxStoreHooks/useStore";
+import notification from "../../../assets/icons/notification.svg";
 
 const ProfileMenu = () => {
   const history = useHistory();
@@ -12,6 +13,15 @@ const ProfileMenu = () => {
   return (
     <>
       <Menu width={300} shadow="md">
+        <Box>
+          <img
+            src={notification}
+            alt="notification"
+            style={{ cursor: "pointer" }}
+            onClick={() => console.log(33)}
+          />
+        </Box>
+
         <Menu.Target>
           <Button pt={3}>Профиль</Button>
         </Menu.Target>
