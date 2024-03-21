@@ -1,29 +1,27 @@
 importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js");
-importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js");
+importScripts(
+  "https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"
+);
 
 var firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDTvMn0jSRBTOHCasfXwrbxI_FribDmGfg",
+  authDomain: "msnotification.firebaseapp.com",
+  projectId: "msnotification",
+  storageBucket: "msnotification.appspot.com",
+  messagingSenderId: "464394570384",
+  appId: "1:464394570384:android:9be3c036db2af5ec82a615",
+};
+
+firebase.initializeApp(firebaseConfig);
+
+// Retrieve firebase messaging
+const messaging = firebase.messaging();
+
+messaging.onBackgroundMessage(function (payload) {
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
   };
 
-
-
-  firebase.initializeApp(firebaseConfig);
-
-  // Retrieve firebase messaging
-  const messaging = firebase.messaging();
-  
-  messaging.onBackgroundMessage(function(payload) {
-  
-    const notificationTitle = payload.notification.title;
-    const notificationOptions = {
-      body: payload.notification.body,
-    };
-  
-    self.registration.showNotification(notificationTitle,
-      notificationOptions);
-  });
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});
