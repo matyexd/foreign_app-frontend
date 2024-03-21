@@ -1,7 +1,8 @@
-import { clsx, Group, Header, Box } from "@mantine/core";
+import { clsx, Group, Header, Box, Modal, Text } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import styles from "./LayoutHeader.module.scss";
 import { useHistory } from "react-router-dom";
-import { ArrowLeft } from "tabler-icons-react";
+import { ArrowLeft, Trash, X } from "tabler-icons-react";
 import ProfileMenu from "./ProfileMenu";
 import notification from "../../../assets/icons/notification.svg";
 import { FC } from "react";
@@ -13,6 +14,7 @@ interface ILayoutHeaderProps {
 
 const LayoutHeader: FC<ILayoutHeaderProps> = ({ title, back }) => {
   const history = useHistory();
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <Header className={styles.header} height={60} py="xs" px={16}>
@@ -32,9 +34,42 @@ const LayoutHeader: FC<ILayoutHeaderProps> = ({ title, back }) => {
             src={notification}
             alt="notification"
             style={{ cursor: "pointer" }}
-            onClick={() => console.log(33)}
+            onClick={open}
           />
         </Box>
+        <Modal
+          opened={opened}
+          onClose={close}
+          title={<span>Прочитанные</span>}
+          centered
+        >
+          <Group>
+            <Box className={styles.notificationBox}>
+              <Text className={styles.notificationTitle}>
+                Info notification
+                <div className={styles.icon}>
+                  <Trash />
+                  <X />
+                </div>
+              </Text>
+              <Text className={styles.notificationText}>
+                Notification message. Here will be information.{" "}
+              </Text>
+            </Box>
+            <Box className={styles.notificationBox}>
+              <Text className={styles.notificationTitle}>
+                Info notification
+                <div className={styles.icon}>
+                  <Trash />
+                  <X />
+                </div>
+              </Text>
+              <Text className={styles.notificationText}>
+                Notification message. Here will be information.{" "}
+              </Text>
+            </Box>
+          </Group>
+        </Modal>
         <ProfileMenu />
       </Group>
     </Header>
