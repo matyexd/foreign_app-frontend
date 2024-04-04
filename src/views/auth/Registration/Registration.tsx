@@ -1,4 +1,4 @@
-import { Box, TextInput, Button, createStyles } from "@mantine/core";
+import { Box, TextInput, Button, PasswordInput, createStyles } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import AuthLayout from "../components/AuthLayout";
 import { AppPath } from "../../../routes/routes-enums";
@@ -44,11 +44,11 @@ export const Registration = () => {
       {/*      handleLogin(values, event)*/}
       {/*    )}*/}
       {/*  >*/}
-      {/*    <TextInput placeholder="Ваше имя" />*/}
+      {/*    <TextInput mt={20} placeholder="Ваше имя" />*/}
       {/*    <TextInput mt={20} placeholder="Ваша фамилия" />*/}
-      {/*    <TextInput mt={20} placeholder="Введите email" />*/}
-      {/*    <TextInput mt={20} placeholder="Введите пароль" />*/}
-      {/*    <TextInput mt={20} placeholder="Повторите пароль" />*/}
+      {/*    <TextInput mt={20} placeholder="Введите email" type={"email"}/> */}
+      {/*    <PasswordInput mt={20} placeholder="Введите пароль" type={"number"} />*/}
+      {/*    <PasswordInput mt={20} placeholder="Повторите пароль" type={"number"} />*/}
       {/*    <Box*/}
       {/*      w="100%"*/}
       {/*      display={"flex"}*/}
