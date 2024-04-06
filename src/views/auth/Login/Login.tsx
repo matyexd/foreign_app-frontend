@@ -58,8 +58,10 @@ export const Login = observer(() => {
         >
           {code ? (
             <>
+
               <TextInput
                 placeholder="Введите код"
+                type={"number"}
                 {...form.getInputProps("code")}
               />
               <Box
@@ -83,6 +85,7 @@ export const Login = observer(() => {
             <>
               <TextInput
                 placeholder="Укажите телефон"
+                type={"number"}
                 {...form.getInputProps("phoneNumber")}
               />
               <Box
