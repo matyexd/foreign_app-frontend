@@ -107,6 +107,7 @@ const ProfileEditModal: FC<IProfileEditModalProps> = ({
           <TextInput
             mb={20}
             label={"Email"}
+            type={"email"}
             {...emailForm.getInputProps("email")}
           />
           <div className={styles.btnModal}>
