@@ -1,0 +1,15 @@
+.block {
+    margin-top: 30px;
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.block__title {
+    font-size: 20px;
+}
+
+.block__body {
+    margin-top: 5px;
+}
+

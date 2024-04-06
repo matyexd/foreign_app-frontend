@@ -1,0 +1,72 @@
+.student {
+    background-color: white;
+    border: 1px solid rgba(224, 224, 224, 1);
+    padding: 48px 30px;
+    cursor: pointer;
+}
+
+.student__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+    margin: 0 auto;
+    gap: 16px;
+}
+.student__img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    img {
+        max-width: 100%;
+    }
+}
+.student__name {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: rgba(37, 37, 37, 1);
+    text-align: center;
+}
+
+.student__btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid rgba(50, 188, 163, 1);
+    color: rgba(50, 188, 163, 1);
+    border-radius: 100px;
+    padding: 4px 12px 4px 12px;
+    cursor: pointer;
+    line-height: 24px;
+    gap: 5px;
+}
+
+.btn__icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    &::after {
+        position: absolute;
+        content: "";
+        width: 16px;
+        height: 2px;
+        background-color: #00093C;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        border-radius: 10px;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: #00093C;
+        border-radius: 10px;
+        height: 16px;
+        width: 2px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+    }
+}

@@ -1,0 +1,59 @@
+// navbar button
+
+.root {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding: 15px 2px 9px 0;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 2px;
+    height: 100%;
+    border-radius: 2px;
+    background-color: transparent;
+    transition: all 0.25s ease-in-out;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: #FFFFFF;
+    transition: all 0.25s ease-in-out;
+  }
+
+  color: #FFFFFF;
+
+  &:hover {
+    color: #fd7e14;
+
+    &::after {
+      background-color: #fd7e14;
+    }
+
+    svg {
+      color: #fd7e14;
+    }
+  }
+}
+
+.rootActive {
+  color: #fd7e14;
+
+  svg {
+    color: #fd7e14;
+  }
+}
+
+.text {
+  line-height: 1.125;
+  padding-bottom: 2px;
+}
