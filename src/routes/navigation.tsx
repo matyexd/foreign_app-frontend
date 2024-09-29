@@ -5,6 +5,7 @@ import {
   Book,
   Users,
   Books,
+  Calendar,
 } from "tabler-icons-react";
 
 import { AppPath } from "./routes-enums";
@@ -57,6 +58,11 @@ export const getNavigation = () => ({
       href: AppPath.myStudents,
       title: "Мои студенты",
       icon: <Users size={24} />,
+    },
+    {
+      href: AppPath.calendar,
+      title: "Календарь",
+      icon: <Calendar size={24} />,
     },
   ],
 });
