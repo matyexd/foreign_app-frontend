@@ -70,6 +70,15 @@ export const ROUTES: RoutesElement[] = [
         title: "Мои студенты",
     },
     {
+        path: AppPath.calendar,
+        
+        component: lazy(
+            () => import(/* webpackChunkName: "schools" */ "../views/calendar")
+        ),
+        protected: true,
+        title: "Календарь",
+    },
+    {
         path: AppPath.courseView,
         //component: Schools,
         component: lazy(
