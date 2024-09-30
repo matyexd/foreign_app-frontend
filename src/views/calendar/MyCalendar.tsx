@@ -31,7 +31,7 @@ const MyCalendar = () => {
         startAccessor="start"
         endAccessor="end"
         messages={messages}
-        style={{ height: "100%" }} // делает календарь на всю страницу
+        // style={{ height: "80%", width: "90%" }}
         onSelectSlot={(slotInfo: any) => alert(`Вы выбрали: ${slotInfo.start}`)} // Обработка клика по дате
         selectable // Делает ячейки "выбираемыми"
       />
