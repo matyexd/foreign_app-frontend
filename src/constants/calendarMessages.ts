@@ -1,0 +1,15 @@
+export const messages = {
+    allDay: "Весь день",
+    previous: "Предыдущий",
+    next: "Следующий",
+    today: "Сегодня",
+    month: "Месяц",
+    week: "Неделя",
+    day: "День",
+    agenda: "СОбытия",
+    date: "Дата",
+    time: "Время",
+    event: "Событие",
+    noEventsInRange: "Нет событий в этом диапазоне",
+    showMore: (total: number) => `+ Показать ещё (${total})`,
+  };
