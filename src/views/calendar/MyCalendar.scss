@@ -1,0 +1,57 @@
+/* Переопределение стилей календаря */
+
+.rbc-calendar {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+// .rbc-toolbar {
+//   background-color: #007bff;
+//   color: white;
+//   padding: 10px;
+//   border-radius: 5px;
+// }
+
+// .rbc-toolbar button {
+//   background-color: #0056b3;
+//   border: none;
+//   color: white;
+//   padding: 5px 10px;
+//   margin: 0 5px;
+//   border-radius: 3px;
+//   cursor: pointer;
+// }
+
+// .rbc-toolbar button:hover {
+//   background-color: #004085;
+// }
+
+.rbc-event {
+  background-color: rgb(247, 148, 29);
+  border-color: rgb(247, 148, 29);
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.rbc-day-bg {
+  background-color: #e9ecef;
+}
+
+.rbc-selected-cell {
+  background-color: #ffc107;
+}
+
+// .rbc-header {
+//   background-color: #343a40;
+//   color: white;
+//   padding: 10px;
+// }
+
+.rbc-today {
+  background-color: rgba(255, 149, 0, 0.15);
+}
+
+.rbc-off-range-bg {
+  background-color: #f8f9fa;
+}
