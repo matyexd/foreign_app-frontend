@@ -19,7 +19,9 @@ const LayoutNavbar: FC<ILayoutNavbarProps> = observer(
     const navigation = getNavigation();
 
     const store = useRootStore();
-    const { role } = store.profileStore;
+    //TODO Auth
+    //const { role } = store.profileStore;
+    const role = { code: "ROLE_TEACHER" };
     return (
       <Navbar
         className={styles.navbar}
